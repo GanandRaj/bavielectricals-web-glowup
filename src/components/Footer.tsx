@@ -38,6 +38,22 @@ const Footer = () => {
               </li>
               <li>
                 <button 
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Projects
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Team
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
