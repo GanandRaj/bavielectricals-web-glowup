@@ -34,16 +34,28 @@ const Header = () => {
               onClick={() => scrollToSection('services')}
               className="text-white hover:text-gray-300 transition-colors font-medium"
             >
-              Projects
+              Services
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
               className="text-white hover:text-gray-300 transition-colors font-medium"
             >
-              Team
+              Projects
             </button>
             <button 
               onClick={() => scrollToSection('team')}
+              className="text-white hover:text-gray-300 transition-colors font-medium"
+            >
+              Team
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-white hover:text-gray-300 transition-colors font-medium"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
               className="text-white hover:text-gray-300 transition-colors font-medium"
             >
               Contact
@@ -73,16 +85,28 @@ const Header = () => {
                 onClick={() => scrollToSection('services')}
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
               >
-                Projects
+                Services
               </button>
               <button 
                 onClick={() => scrollToSection('projects')}
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
               >
-                Team
+                Projects
               </button>
               <button 
                 onClick={() => scrollToSection('team')}
+                className="text-white hover:text-gray-300 transition-colors font-medium text-left"
+              >
+                Team
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-white hover:text-gray-300 transition-colors font-medium text-left"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
               >
                 Contact

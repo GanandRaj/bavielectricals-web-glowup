@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Zap className="h-8 w-8 text-white" />
-              <span className="text-xl font-bold">Amalodh Bavi Electricals</span>
+              <span className="text-xl font-bold">అమలోధ్‌బావి ఎలక్ట్రికల్స్</span>
             </div>
             <p className="text-gray-300 mb-4">
               Professional electrical services you can trust. Licensed, insured, 
@@ -92,7 +92,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2024 Amalodh Bavi Electricals. All rights reserved. Licensed & Insured Electrical Contractor.
+            © 2024 అమలోధ్‌బావి ఎలక్ట్రికల్స్. All rights reserved. Licensed & Insured Electrical Contractor.
           </p>
         </div>
       </div>
