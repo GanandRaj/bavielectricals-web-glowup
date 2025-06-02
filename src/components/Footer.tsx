@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Zap className="h-8 w-8 text-yellow-400" />
+              <Zap className="h-8 w-8 text-white" />
               <span className="text-xl font-bold">Amalodh Bavi Electricals</span>
             </div>
             <p className="text-gray-300 mb-4">
@@ -75,15 +75,15 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-yellow-400" />
+                <Phone className="h-5 w-5 text-white" />
                 <span className="text-gray-300">(123) 456-7890</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-yellow-400" />
+                <Mail className="h-5 w-5 text-white" />
                 <span className="text-gray-300">contact@amalodhbavielectricals.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-yellow-400" />
+                <MapPin className="h-5 w-5 text-white" />
                 <span className="text-gray-300">Serving Your Local Area</span>
               </div>
             </div>

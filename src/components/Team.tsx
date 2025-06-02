@@ -46,10 +46,10 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-16 bg-gray-50">
+    <section id="team" className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Meet Our Expert Team
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -72,13 +72,13 @@ const Team = () => {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <h3 className="text-white text-lg font-semibold">{member.name}</h3>
-                  <p className="text-blue-200 text-sm">{member.position}</p>
+                  <p className="text-gray-200 text-sm">{member.position}</p>
                 </div>
               </div>
               
               <div className="p-6">
                 <div className="mb-4">
-                  <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium inline-block mb-2">
+                  <div className="bg-gray-200 text-black px-3 py-1 rounded-full text-sm font-medium inline-block mb-2">
                     {member.experience}
                   </div>
                   <p className="text-gray-600 text-sm">{member.specialization}</p>
@@ -86,14 +86,14 @@ const Team = () => {
                 
                 <div className="space-y-2">
                   <div className="flex items-center text-sm text-gray-600">
-                    <Mail className="h-4 w-4 text-blue-600 mr-2" />
-                    <a href={`mailto:${member.email}`} className="hover:text-blue-600 transition-colors">
+                    <Mail className="h-4 w-4 text-black mr-2" />
+                    <a href={`mailto:${member.email}`} className="hover:text-black transition-colors">
                       {member.email}
                     </a>
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <Phone className="h-4 w-4 text-blue-600 mr-2" />
-                    <a href={`tel:${member.phone}`} className="hover:text-blue-600 transition-colors">
+                    <Phone className="h-4 w-4 text-black mr-2" />
+                    <a href={`tel:${member.phone}`} className="hover:text-black transition-colors">
                       {member.phone}
                     </a>
                   </div>
@@ -104,15 +104,15 @@ const Team = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-blue-600 text-white py-8 px-8 rounded-lg">
+          <div className="bg-black text-white py-8 px-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4">Join Our Team</h3>
-            <p className="text-lg text-blue-100 mb-6">
+            <p className="text-lg text-gray-300 mb-6">
               We're always looking for skilled electricians to join our growing team. 
               If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-lg transition-all duration-300"
+              className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-all duration-300"
             >
               Contact Us About Careers
             </button>

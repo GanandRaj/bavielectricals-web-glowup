@@ -51,7 +51,7 @@ const Projects = () => {
     <section id="projects" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Our Recent Projects
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -64,7 +64,7 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
+              className="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
               <div className="relative">
                 <img 
@@ -73,19 +73,19 @@ const Projects = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
                     {project.category}
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-black mb-3">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 mb-4">
                   {project.description}
                 </p>
-                <button className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <button className="inline-flex items-center text-black hover:text-gray-700 font-medium">
                   View Details
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </button>

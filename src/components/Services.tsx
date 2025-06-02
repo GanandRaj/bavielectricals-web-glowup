@@ -36,13 +36,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-gray-50">
+    <section id="services" className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Our Electrical Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             From simple repairs to complex installations, we provide comprehensive electrical services 
             with the highest standards of safety and quality.
           </p>
@@ -54,8 +54,8 @@ const Services = () => {
               key={index}
               className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
-              <service.icon className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <service.icon className="h-12 w-12 text-black mb-4" />
+              <h3 className="text-xl font-semibold text-black mb-3">
                 {service.title}
               </h3>
               <p className="text-gray-600">

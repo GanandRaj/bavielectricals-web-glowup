@@ -30,7 +30,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
               About Amalodh Bavi Electricals
             </h2>
             <p className="text-lg text-gray-600 mb-6">
@@ -44,15 +44,15 @@ const About = () => {
               right the first time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="bg-blue-600 text-white py-3 px-6 rounded-lg text-center">
+              <div className="bg-black text-white py-3 px-6 rounded-lg text-center">
                 <div className="text-2xl font-bold">10+</div>
                 <div className="text-sm">Years Experience</div>
               </div>
-              <div className="bg-blue-600 text-white py-3 px-6 rounded-lg text-center">
+              <div className="bg-black text-white py-3 px-6 rounded-lg text-center">
                 <div className="text-2xl font-bold">500+</div>
                 <div className="text-sm">Projects Completed</div>
               </div>
-              <div className="bg-blue-600 text-white py-3 px-6 rounded-lg text-center">
+              <div className="bg-black text-white py-3 px-6 rounded-lg text-center">
                 <div className="text-2xl font-bold">100%</div>
                 <div className="text-sm">Customer Satisfaction</div>
               </div>
@@ -62,8 +62,8 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <div key={index} className="text-center p-6 bg-gray-50 rounded-lg">
-                <feature.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <feature.icon className="h-12 w-12 text-black mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-black mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm">
