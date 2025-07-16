@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
             <Zap className="h-8 w-8 text-white" />
-            <span className="text-xl font-bold text-white">అమలోధ్‌బావి ఎలక్ట్రికల్స్</span>
+            <span className="text-xl font-bold text-white">Amalodhbhavi Electricals</span>
           </div>
           
           {/* Desktop Navigation */}

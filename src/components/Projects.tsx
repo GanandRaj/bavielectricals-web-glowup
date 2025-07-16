@@ -5,45 +5,45 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Residential Wiring Installation",
-      description: "Complete electrical rewiring for a modern home with smart lighting systems.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=300&fit=crop",
-      category: "Residential"
+      buildingName: "Greenfield Residential Complex",
+      address: "123 Main Street, Downtown",
+      mapsLink: "https://maps.google.com/?q=123+Main+Street+Downtown",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=300&fit=crop"
     },
     {
       id: 2,
-      title: "Commercial Office Setup",
-      description: "Professional electrical installation for a corporate office building.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop",
-      category: "Commercial"
+      buildingName: "Corporate Tower Plaza",
+      address: "456 Business Avenue, Financial District",
+      mapsLink: "https://maps.google.com/?q=456+Business+Avenue+Financial+District",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop"
     },
     {
       id: 3,
-      title: "Industrial Panel Upgrade",
-      description: "High-voltage electrical panel modernization for manufacturing facility.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
-      category: "Industrial"
+      buildingName: "Industrial Manufacturing Hub",
+      address: "789 Factory Road, Industrial Zone",
+      mapsLink: "https://maps.google.com/?q=789+Factory+Road+Industrial+Zone",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop"
     },
     {
       id: 4,
-      title: "Emergency Repair Service",
-      description: "24/7 emergency electrical repair and restoration services.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500&h=300&fit=crop",
-      category: "Emergency"
+      buildingName: "Emergency Services Building",
+      address: "321 Emergency Lane, City Center",
+      mapsLink: "https://maps.google.com/?q=321+Emergency+Lane+City+Center",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500&h=300&fit=crop"
     },
     {
       id: 5,
-      title: "Smart Home Integration",
-      description: "Modern smart home electrical systems with automated controls.",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop",
-      category: "Residential"
+      buildingName: "Smart Home Villa",
+      address: "654 Technology Street, Suburb",
+      mapsLink: "https://maps.google.com/?q=654+Technology+Street+Suburb",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop"
     },
     {
       id: 6,
-      title: "Safety Inspection & Compliance",
-      description: "Comprehensive electrical safety inspections and code compliance.",
-      image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?w=500&h=300&fit=crop",
-      category: "Safety"
+      buildingName: "Safety Inspection Center",
+      address: "987 Safety Boulevard, Metro Area",
+      mapsLink: "https://maps.google.com/?q=987+Safety+Boulevard+Metro+Area",
+      image: "https://images.unsplash.com/photo-1527576539890-dfa815648363?w=500&h=300&fit=crop"
     }
   ];
 
@@ -66,29 +66,27 @@ const Projects = () => {
               key={project.id}
               className="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
-              <div className="relative">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
+              <img 
+                src={project.image} 
+                alt={project.buildingName}
+                className="w-full h-48 object-cover"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-black mb-3">
-                  {project.title}
+                  {project.buildingName}
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  {project.description}
+                  {project.address}
                 </p>
-                <button className="inline-flex items-center text-black hover:text-gray-700 font-medium">
-                  View Details
+                <a 
+                  href={project.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-black hover:text-gray-700 font-medium"
+                >
+                  View on Maps
                   <ExternalLink className="ml-2 h-4 w-4" />
-                </button>
+                </a>
               </div>
             </div>
           ))}
