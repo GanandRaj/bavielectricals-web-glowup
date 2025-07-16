@@ -2,47 +2,34 @@
 import { Mail, Phone } from 'lucide-react';
 
 const Team = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Amalodh Bavi",
-      position: "Master Electrician & Owner",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      experience: "15+ Years",
-      email: "amalodh@amalodhbavielectricals.com",
-      phone: "(123) 456-7890",
-      specialization: "Commercial & Residential Electrical Systems"
-    },
-    {
-      id: 2,
-      name: "Rajesh Kumar",
-      position: "Senior Electrician",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      experience: "10+ Years",
-      email: "rajesh@amalodhbavielectricals.com",
-      phone: "(123) 456-7891",
-      specialization: "Industrial Electrical & Panel Upgrades"
-    },
-    {
-      id: 3,
-      name: "Priya Sharma",
-      position: "Electrical Engineer",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      experience: "8+ Years",
-      email: "priya@amalodhbavielectricals.com",
-      phone: "(123) 456-7892",
-      specialization: "Smart Home Systems & Automation"
-    },
-    {
-      id: 4,
-      name: "Vikram Singh",
-      position: "Apprentice Electrician",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-      experience: "3+ Years",
-      email: "vikram@amalodhbavielectricals.com",
-      phone: "(123) 456-7893",
-      specialization: "Residential Wiring & Maintenance"
-    }
+  const ceo = {
+    name: "Amalodh Bavi",
+    position: "CEO & Master Electrician",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    message: "Hard work and team effort - that's what makes Amalodhbhavi Electricals successful. Our commitment to excellence and dedication to our craft has built the foundation of trust with our clients. Together, we illuminate every project with precision and passion."
+  };
+
+  const employees = [
+    { id: 1, name: "Rajesh Kumar", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" },
+    { id: 2, name: "Priya Sharma", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" },
+    { id: 3, name: "Vikram Singh", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face" },
+    { id: 4, name: "Suresh Reddy", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face" },
+    { id: 5, name: "Anjali Devi", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" },
+    { id: 6, name: "Ravi Krishnan", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&h=200&fit=crop&crop=face" },
+    { id: 7, name: "Meera Nair", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" },
+    { id: 8, name: "Kiran Patel", image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=200&h=200&fit=crop&crop=face" },
+    { id: 9, name: "Lakshmi Rao", image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&crop=face" },
+    { id: 10, name: "Arjun Gupta", image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=200&h=200&fit=crop&crop=face" },
+    { id: 11, name: "Divya Menon", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=face" },
+    { id: 12, name: "Sanjay Iyer", image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&h=200&fit=crop&crop=face" },
+    { id: 13, name: "Kavitha Bhat", image: "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?w=200&h=200&fit=crop&crop=face" },
+    { id: 14, name: "Mahesh Joshi", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200&h=200&fit=crop&crop=face" },
+    { id: 15, name: "Rashmi Pillai", image: "https://images.unsplash.com/photo-1502378735452-bc7d86632805?w=200&h=200&fit=crop&crop=face" },
+    { id: 16, name: "Deepak Verma", image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?w=200&h=200&fit=crop&crop=face" },
+    { id: 17, name: "Sunitha Rajan", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" },
+    { id: 18, name: "Ashwin Kumar", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" },
+    { id: 19, name: "Gayathri Nair", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face" },
+    { id: 20, name: "Ramesh Babu", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" }
   ];
 
   return (
@@ -52,55 +39,51 @@ const Team = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Meet Our Expert Team
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our experienced and certified electricians are dedicated to providing 
-            exceptional service and ensuring your electrical needs are met with professionalism.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member) => (
-            <div 
-              key={member.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="relative">
+        {/* Director's Message Section */}
+        <div className="mb-16">
+          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-8">
+              Our Director's Message
+            </h3>
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
                 <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
+                  src={ceo.image} 
+                  alt={ceo.name}
+                  className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-lg shadow-lg"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-white text-lg font-semibold">{member.name}</h3>
-                  <p className="text-gray-200 text-sm">{member.position}</p>
-                </div>
               </div>
-              
-              <div className="p-6">
-                <div className="mb-4">
-                  <div className="bg-gray-200 text-black px-3 py-1 rounded-full text-sm font-medium inline-block mb-2">
-                    {member.experience}
-                  </div>
-                  <p className="text-gray-600 text-sm">{member.specialization}</p>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Mail className="h-4 w-4 text-black mr-2" />
-                    <a href={`mailto:${member.email}`} className="hover:text-black transition-colors">
-                      {member.email}
-                    </a>
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Phone className="h-4 w-4 text-black mr-2" />
-                    <a href={`tel:${member.phone}`} className="hover:text-black transition-colors">
-                      {member.phone}
-                    </a>
-                  </div>
-                </div>
+              <div className="flex-1 text-center lg:text-left">
+                <h4 className="text-xl md:text-2xl font-bold text-black mb-2">{ceo.name}</h4>
+                <p className="text-lg text-gray-600 mb-4">{ceo.position}</p>
+                <blockquote className="text-gray-700 text-lg leading-relaxed italic">
+                  "{ceo.message}"
+                </blockquote>
               </div>
             </div>
-          ))}
+          </div>
+        </div>
+
+        {/* Employee Grid */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold text-center text-black mb-8">Our Team</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {employees.map((employee) => (
+              <div 
+                key={employee.id}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+              >
+                <img 
+                  src={employee.image} 
+                  alt={employee.name}
+                  className="w-20 h-20 mx-auto object-cover rounded-full mb-3"
+                />
+                <h4 className="text-sm font-medium text-black">{employee.name}</h4>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 text-center">
