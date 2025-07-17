@@ -69,7 +69,7 @@ const Projects = () => {
               <img 
                 src={project.image} 
                 alt={project.buildingName}
-                className="w-full h-64 object-cover rounded-t-lg"
+                className="w-full h-64 object-cover rounded-t-lg object-top"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-black mb-3">
