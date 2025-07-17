@@ -1,28 +1,31 @@
 
 import { ExternalLink } from 'lucide-react';
+import residentialComplexImg from '../assets/residential-complex.png';
+import conventionsGrandImg from '../assets/conventions-grand.png';
+import jaihindEnclaveImg from '../assets/jaihind-enclave.png';
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      buildingName: "Greenfield Residential Complex",
-      address: "123 Main Street, Downtown",
-      mapsLink: "https://maps.google.com/?q=123+Main+Street+Downtown",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=300&fit=crop"
+      buildingName: "Residential Complex",
+      address: "Hyderabad, Telangana",
+      mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
+      image: residentialComplexImg
     },
     {
       id: 2,
-      buildingName: "Corporate Tower Plaza",
-      address: "456 Business Avenue, Financial District",
-      mapsLink: "https://maps.google.com/?q=456+Business+Avenue+Financial+District",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop"
+      buildingName: "Conventions Grand",
+      address: "Hyderabad, Telangana", 
+      mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
+      image: conventionsGrandImg
     },
     {
       id: 3,
-      buildingName: "Industrial Manufacturing Hub",
-      address: "789 Factory Road, Industrial Zone",
-      mapsLink: "https://maps.google.com/?q=789+Factory+Road+Industrial+Zone",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop"
+      buildingName: "Jaihind Enclave",
+      address: "Hyderabad, Telangana",
+      mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana", 
+      image: jaihindEnclaveImg
     },
     {
       id: 4,
