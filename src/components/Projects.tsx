@@ -1,8 +1,5 @@
 
 import { ExternalLink } from 'lucide-react';
-import residentialComplexImg from '@/assets/residential-complex.png';
-import conventionsGrandImg from '@/assets/conventions-grand.png';
-import jaihindEnclaveImg from '@/assets/jaihind-enclave.png';
 
 const Projects = () => {
   const projects = [
@@ -11,21 +8,21 @@ const Projects = () => {
       buildingName: "Residential Complex",
       address: "Hyderabad, Telangana",
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
-      image: residentialComplexImg
+      image: "/lovable-uploads/8d607631-d870-4849-ac40-2029aac46744.png"
     },
     {
       id: 2,
       buildingName: "Conventions Grand",
       address: "Hyderabad, Telangana", 
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
-      image: conventionsGrandImg
+      image: "/lovable-uploads/e0eed02b-9df9-4d98-9569-774679d26265.png"
     },
     {
       id: 3,
       buildingName: "Jaihind Enclave",
       address: "Hyderabad, Telangana",
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana", 
-      image: jaihindEnclaveImg
+      image: "/lovable-uploads/e0eed02b-9df9-4d98-9569-774679d26265.png"
     },
     {
       id: 4,
