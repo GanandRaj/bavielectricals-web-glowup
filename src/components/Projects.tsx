@@ -1,8 +1,8 @@
 
 import { ExternalLink } from 'lucide-react';
-import residentialComplexImg from '../assets/residential-complex.png';
-import conventionsGrandImg from '../assets/conventions-grand.png';
-import jaihindEnclaveImg from '../assets/jaihind-enclave.png';
+import residentialComplexImg from '@/assets/residential-complex.png';
+import conventionsGrandImg from '@/assets/conventions-grand.png';
+import jaihindEnclaveImg from '@/assets/jaihind-enclave.png';
 
 const Projects = () => {
   const projects = [
