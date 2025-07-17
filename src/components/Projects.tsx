@@ -8,7 +8,7 @@ const Projects = () => {
       buildingName: "Residential Complex",
       address: "Hyderabad, Telangana",
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
-      image: "/lovable-uploads/8d607631-d870-4849-ac40-2029aac46744.png"
+      image: "/lovable-uploads/c53a0bed-6d69-4571-a17b-44becfb58138.png"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const Projects = () => {
       buildingName: "Jaihind Enclave",
       address: "Hyderabad, Telangana",
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana", 
-      image: "/lovable-uploads/8d607631-d870-4849-ac40-2029aac46744.png"
+      image: "/lovable-uploads/7077ed45-b1be-4a56-a412-330785fee416.png"
     },
     {
       id: 4,
