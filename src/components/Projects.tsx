@@ -22,7 +22,7 @@ const Projects = () => {
       buildingName: "Jaihind Enclave",
       address: "Hyderabad, Telangana",
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana", 
-      image: "/lovable-uploads/7077ed45-b1be-4a56-a412-330785fee416.png"
+      image: "/lovable-uploads/faeb2ae0-ef65-4519-8f16-b949d562f4ce.png"
     },
     {
       id: 4,
