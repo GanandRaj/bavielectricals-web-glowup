@@ -15,7 +15,7 @@ const Projects = () => {
       buildingName: "Conventions Grand",
       address: "Hyderabad, Telangana", 
       mapsLink: "https://maps.google.com/?q=Hyderabad+Telangana",
-      image: "/lovable-uploads/e0eed02b-9df9-4d98-9569-774679d26265.png"
+      image: "/lovable-uploads/74e9e324-23af-4fb6-babd-ba9aed702acf.png"
     },
     {
       id: 3,
