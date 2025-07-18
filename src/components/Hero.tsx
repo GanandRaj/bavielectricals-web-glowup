@@ -13,11 +13,14 @@ const Hero = () => {
     <section id="home" className="relative bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 blur-sm"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')`
+          backgroundImage: `url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')`
         }}
       ></div>
+      
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-gray-100/50 to-gray-200/60"></div>
       
       {/* 3D Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 to-purple-50/40"></div>
