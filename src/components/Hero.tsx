@@ -10,20 +10,20 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')`
-        }}
-      ></div>
-      
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-gray-100/50 to-gray-200/60"></div>
+    <section 
+      id="home" 
+      className="relative text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8)), url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Additional overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20"></div>
       
       {/* 3D Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 to-purple-50/40"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
       
