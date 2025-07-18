@@ -14,7 +14,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black shadow-lg fixed w-full top-0 z-50">
+    <header className="bg-gradient-to-r from-gray-900 via-black to-gray-900 shadow-2xl fixed w-full top-0 z-50 backdrop-blur-xl border-b border-white/10"
+            style={{
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.1)'
+            }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
