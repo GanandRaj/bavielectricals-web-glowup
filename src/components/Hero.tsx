@@ -1,56 +1,56 @@
 
-import { ArrowRight, Zap, Star, Users, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex items-center justify-center relative overflow-hidden pt-20">
-      <div className="absolute inset-0 bg-black/20"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="home" className="bg-gray-200 text-gray-900 py-20 mt-16 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="flex items-center justify-center space-x-3 mb-8">
-            <Zap className="h-12 w-12 text-blue-400" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
-              అమలోధ్‌బావి ఎలక్ట్రికల్స్
-            </h1>
-          </div>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Professional electrical services you can trust. Licensed, insured, and committed to excellence.
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black">
+            Amalodhbhavi Electricals
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-4xl mx-auto">
+            Professional electrical services for residential, commercial, and industrial needs. 
+            Licensed, insured, and committed to excellence in every project we undertake.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
             <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 flex items-center space-x-2"
+              onClick={scrollToContact}
+              className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
-              <span>Get Free Quote</span>
-              <ArrowRight className="h-5 w-5" />
+              Get Free Quote
             </button>
-            
             <button 
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-transparent border-2 border-white text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-white hover:text-gray-900"
+              onClick={scrollToContact}
+              className="border-2 border-black text-black hover:bg-black hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300"
             >
-              Our Services
+              Contact Us
             </button>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <Star className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-white mb-1">100%</div>
-              <div className="text-gray-300">5-Star Rated</div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+              <Phone className="h-8 w-8 text-black mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">24/7 Emergency Service</h3>
+              <p className="text-gray-600 text-sm">Available when you need us most</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <Users className="h-8 w-8 text-green-400 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-white mb-1">500+</div>
-              <div className="text-gray-300">Happy Clients</div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+              <Mail className="h-8 w-8 text-black mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">Licensed & Insured</h3>
+              <p className="text-gray-600 text-sm">Professional and reliable service</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <Clock className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-white mb-1">15+</div>
-              <div className="text-gray-300">Years Experience</div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+              <MapPin className="h-8 w-8 text-black mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">Local Expertise</h3>
+              <p className="text-gray-600 text-sm">Serving the community with pride</p>
             </div>
           </div>
         </div>

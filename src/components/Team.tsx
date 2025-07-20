@@ -33,56 +33,32 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-20 relative overflow-hidden"
-             style={{
-               background: 'linear-gradient(135deg, #6b7280 0%, #9ca3af 50%, #d1d5db 100%)'
-             }}>
-      {/* 3D Background Elements */}
-      <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="team" className="py-16 bg-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mb-4"
-              style={{
-                textShadow: '0 0 30px rgba(59, 130, 246, 0.5)',
-                filter: 'drop-shadow(0 4px 20px rgba(59, 130, 246, 0.3))'
-              }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Meet Our Expert Team
           </h2>
         </div>
 
         {/* Director's Message Section */}
-        <div className="mb-16 perspective-1000">
-          <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20 transform hover:scale-105 transition-all duration-500"
-               style={{
-                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(59, 130, 246, 0.2)'
-               }}>
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text mb-8"
-                style={{
-                  textShadow: '0 0 30px rgba(34, 197, 94, 0.5)',
-                  filter: 'drop-shadow(0 4px 20px rgba(34, 197, 94, 0.3))'
-                }}>
+        <div className="mb-16">
+          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-8">
               Our Director's Message
             </h3>
             <div className="flex flex-col lg:flex-row items-center gap-8">
               <div className="flex-shrink-0">
-                <div className="relative">
-                  <img 
-                    src={ceo.image} 
-                    alt={ceo.name}
-                    className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
-                    style={{
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)'
-                    }}
-                  />
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-blue-500/20 to-transparent"></div>
-                </div>
+                <img 
+                  src={ceo.image} 
+                  alt={ceo.name}
+                  className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-lg shadow-lg"
+                />
               </div>
               <div className="flex-1 text-center lg:text-left">
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-2">{ceo.name}</h4>
-                <p className="text-lg text-blue-300 mb-4">{ceo.position}</p>
-                <blockquote className="text-gray-300 text-lg leading-relaxed italic backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10">
+                <h4 className="text-xl md:text-2xl font-bold text-black mb-2">{ceo.name}</h4>
+                <p className="text-lg text-gray-600 mb-4">{ceo.position}</p>
+                <blockquote className="text-gray-700 text-lg leading-relaxed italic">
                   "{ceo.message}"
                 </blockquote>
               </div>
@@ -92,53 +68,34 @@ const Team = () => {
 
         {/* Employee Grid */}
         <div className="mb-12">
-          <h3 className="text-2xl font-bold text-center text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mb-8"
-              style={{
-                textShadow: '0 0 30px rgba(59, 130, 246, 0.5)',
-                filter: 'drop-shadow(0 4px 20px rgba(59, 130, 246, 0.3))'
-              }}>Our Team</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 perspective-1000">
+          <h3 className="text-2xl font-bold text-center text-black mb-8">Our Team</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {employees.map((employee) => (
               <div 
                 key={employee.id}
-                className="group bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl p-4 text-center hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 border border-white/20"
-                style={{
-                  boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.1)'
-                }}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="relative">
-                  <img 
-                    src={employee.image} 
-                    alt={employee.name}
-                    className="w-20 h-20 mx-auto object-cover rounded-full mb-3 shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-500/20 to-transparent group-hover:from-blue-500/30 transition-all duration-300"></div>
-                </div>
-                <h4 className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors duration-300">{employee.name}</h4>
+                <img 
+                  src={employee.image} 
+                  alt={employee.name}
+                  className="w-20 h-20 mx-auto object-cover rounded-full mb-3"
+                />
+                <h4 className="text-sm font-medium text-black">{employee.name}</h4>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 text-center perspective-1000">
-          <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-12 px-8 rounded-3xl shadow-2xl border border-white/10 backdrop-blur-xl transform hover:scale-105 transition-all duration-500"
-               style={{
-                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(59, 130, 246, 0.2)'
-               }}>
-            <h3 className="text-2xl font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text"
-                style={{
-                  textShadow: '0 0 30px rgba(59, 130, 246, 0.5)'
-                }}>Join Our Team</h3>
-            <p className="text-lg text-gray-300 mb-8 backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div className="mt-12 text-center">
+          <div className="bg-black text-white py-8 px-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4">Join Our Team</h3>
+            <p className="text-lg text-gray-300 mb-6">
               We're always looking for skilled electricians to join our growing team. 
               If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 shadow-lg hover:shadow-blue-500/25"
-              style={{
-                boxShadow: '0 15px 35px rgba(59, 130, 246, 0.3)'
-              }}
+              className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-all duration-300"
             >
               Contact Us About Careers
             </button>

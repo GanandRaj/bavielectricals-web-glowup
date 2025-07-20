@@ -48,15 +48,15 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Our Recent Projects
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Take a look at some of our completed electrical projects that showcase our expertise 
-            and commitment to quality workmanship.
+            Take a look at some of our completed electrical projects. Each project showcases 
+            our commitment to quality, safety, and professional excellence.
           </p>
         </div>
 
@@ -64,27 +64,25 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.buildingName}
-                  className={`w-full h-48 object-cover hover:scale-105 transition-transform duration-300 ${project.id === 2 ? 'object-top' : ''}`}
-                />
-              </div>
+              <img 
+                src={project.image} 
+                alt={project.buildingName}
+                className="w-full h-64 object-cover rounded-t-lg"
+              />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-black mb-3">
                   {project.buildingName}
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-4">
                   {project.address}
                 </p>
                 <a 
                   href={project.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                  className="inline-flex items-center text-black hover:text-gray-700 font-medium"
                 >
                   View on Maps
                   <ExternalLink className="ml-2 h-4 w-4" />
