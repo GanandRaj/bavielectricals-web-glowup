@@ -48,12 +48,12 @@ const Header = () => {
             >
               Team
             </button>
-            <button 
-              onClick={() => scrollToSection('about')}
+            <a 
+              href="/products"
               className="text-white hover:text-gray-300 transition-colors font-medium"
             >
-              About
-            </button>
+              Products
+            </a>
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-white hover:text-gray-300 transition-colors font-medium"
@@ -99,12 +99,12 @@ const Header = () => {
               >
                 Team
               </button>
-              <button 
-                onClick={() => scrollToSection('about')}
+              <a 
+                href="/products"
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
               >
-                About
-              </button>
+                Products
+              </a>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
