@@ -95,14 +95,9 @@ const Footer = () => {
                 <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-8 h-8 rounded-lg flex items-center justify-center">
                   <Phone className="h-4 w-4 text-white" />
                 </div>
-                <div>
-                  <a href="tel:+919989030669" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-                    +91 9989030669
-                  </a>
-                  <a href="tel:+918106900669" className="block text-red-300 hover:text-red-100 transition-colors text-xs">
-                    Emergency: +91 8106900669
-                  </a>
-                </div>
+                <a href="tel:+919989030669" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+                  +91 9989030669
+                </a>
               </div>
               <div className="flex items-center space-x-3 group">
                 <div className="bg-gradient-to-br from-green-500 to-green-600 w-8 h-8 rounded-lg flex items-center justify-center">
@@ -116,7 +111,13 @@ const Footer = () => {
                 <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-8 h-8 rounded-lg flex items-center justify-center">
                   <MapPin className="h-4 w-4 text-white" />
                 </div>
-                <span className="text-gray-300 text-sm font-medium">Serving Your Local Area</span>
+                <a 
+                  href="#contact" 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer"
+                >
+                  Serving Your Local Area
+                </a>
               </div>
             </div>
           </div>
@@ -151,7 +152,7 @@ const Footer = () => {
             <div className="flex items-center space-x-6 text-xs text-gray-500">
               <span>Licensed & Insured Electrical Contractor</span>
               <span>•</span>
-              <span>Professional Excellence Since 2020</span>
+              <span>Professional Excellence Since 1997</span>
             </div>
           </div>
         </div>

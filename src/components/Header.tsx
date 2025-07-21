@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="bg-black shadow-lg fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
             <Zap className="h-8 w-8 text-white" />
@@ -29,12 +29,6 @@ const Header = () => {
               className="text-white hover:text-gray-300 transition-colors font-medium"
             >
               Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-white hover:text-gray-300 transition-colors font-medium"
-            >
-              Services
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
@@ -80,12 +74,6 @@ const Header = () => {
                 className="text-white hover:text-gray-300 transition-colors font-medium text-left"
               >
                 Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-white hover:text-gray-300 transition-colors font-medium text-left"
-              >
-                Services
               </button>
               <button 
                 onClick={() => scrollToSection('projects')}
