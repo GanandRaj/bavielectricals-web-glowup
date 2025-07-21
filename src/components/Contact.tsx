@@ -111,9 +111,14 @@ const Contact = () => {
                 <Phone className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Call Us</h3>
-              <a href="tel:+919989030669" className="text-gray-300 hover:text-white transition-colors text-lg font-medium">
-                +91 9989030669
-              </a>
+              <div className="space-y-2">
+                <a href="tel:+919989030669" className="block text-gray-300 hover:text-white transition-colors text-lg font-medium">
+                  +91 9989030669
+                </a>
+                <a href="tel:+918106900669" className="block text-red-300 hover:text-red-100 transition-colors text-sm font-medium">
+                  Emergency: +91 8106900669
+                </a>
+              </div>
             </CardContent>
           </Card>
 
@@ -226,13 +231,23 @@ const Contact = () => {
                           <Building className="h-4 w-4" />
                           Project Type
                         </FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select 
+                          onValueChange={(value) => {
+                            // Allow deselection by clicking the same option
+                            if (field.value === value) {
+                              field.onChange('');
+                            } else {
+                              field.onChange(value);
+                            }
+                          }} 
+                          value={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-white/40 focus:bg-white/15">
                               <SelectValue placeholder="Select your project type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-slate-800 border-white/20">
+                          <SelectContent className="bg-slate-800 border-white/20 z-[9999]">
                             {projectOptions.map((option) => (
                               <SelectItem 
                                 key={option.value} 
@@ -295,17 +310,6 @@ const Contact = () => {
           </Card>
         </div>
 
-        <div className="text-center">
-          <Card className="bg-gradient-to-r from-red-600 to-red-700 border-red-500/20 inline-block hover:shadow-2xl hover:shadow-red-500/30 transition-all duration-300 hover:scale-105">
-            <CardContent className="py-8 px-12">
-              <h3 className="text-2xl font-bold mb-3 text-white">Emergency Service Available</h3>
-              <p className="text-lg text-red-100 mb-4">Call now for immediate electrical assistance</p>
-              <a href="tel:+918106900669" className="text-3xl font-bold text-white hover:text-red-100 transition-colors">
-                +91 8106900669
-              </a>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
