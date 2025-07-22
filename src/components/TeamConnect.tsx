@@ -1,8 +1,8 @@
 import { Mail, MessageCircle, Instagram } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
-import { useState, useEffect, useRef, memo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-const TeamConnect = memo(() => {
+const TeamConnect = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [loadedImages, setLoadedImages] = useState<boolean[]>([false, false]);
   const sectionRef = useRef<HTMLElement>(null);
@@ -156,8 +156,6 @@ const TeamConnect = memo(() => {
       </div>
     </section>
   );
-});
-
-TeamConnect.displayName = 'TeamConnect';
+};
 
 export default TeamConnect;
