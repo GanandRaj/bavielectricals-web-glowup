@@ -1,7 +1,8 @@
 
 import { ExternalLink } from 'lucide-react';
+import { memo, useState } from 'react';
 
-const Projects = () => {
+const Projects = memo(() => {
   const projects = [
     {
       id: 1,
@@ -70,6 +71,8 @@ const Projects = () => {
                 src={project.image} 
                 alt={project.buildingName}
                 className={`w-full h-64 object-cover rounded-t-lg ${project.id === 2 ? 'object-top' : ''}`}
+                loading="lazy"
+                decoding="async"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-black mb-3">
@@ -94,6 +97,6 @@ const Projects = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Projects;

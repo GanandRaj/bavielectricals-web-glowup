@@ -1,7 +1,8 @@
 
 import { Zap, Home, Building, Wrench, Shield, Clock } from 'lucide-react';
+import { memo } from 'react';
 
-const Services = () => {
+const Services = memo(() => {
   const services = [
     {
       icon: Home,
@@ -67,6 +68,6 @@ const Services = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Services;

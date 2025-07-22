@@ -1,17 +1,17 @@
 
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
 
-const Header = () => {
+const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
-  };
+  }, []);
 
   return (
     <header className="bg-black shadow-lg fixed w-full top-0 z-50">
@@ -105,6 +105,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

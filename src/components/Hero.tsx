@@ -1,13 +1,14 @@
 
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { memo, useCallback } from 'react';
 
-const Hero = () => {
-  const scrollToContact = () => {
+const Hero = memo(() => {
+  const scrollToContact = useCallback(() => {
     const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   return (
     <section id="home" className="relative bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
@@ -70,6 +71,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Hero;
