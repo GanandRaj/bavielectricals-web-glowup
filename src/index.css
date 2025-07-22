@@ -4,6 +4,13 @@
 
 html {
   overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Prevent layout shift when modals/dropdowns open */
+body {
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 @layer base {
