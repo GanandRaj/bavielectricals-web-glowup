@@ -27,9 +27,9 @@ const TeamConnect = () => {
             Connect With Our Team
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Get in touch with our electrical experts for any technical consultations, 
-            project discussions, or specialized electrical solutions. We're here to help 
-            bring your vision to life with professional expertise and reliable service.
+            Ready to elevate your business with a professional website? We're Gali and Dhanush, 
+            passionate web developers specializing in creating stunning, responsive websites for businesses. 
+            From concept to launch, we deliver modern web solutions that help your business thrive online.
           </p>
         </div>
 
@@ -84,9 +84,9 @@ const TeamConnect = () => {
 
         <div className="text-center mt-12">
           <p className="text-gray-400 text-lg">
-            <span className="text-white font-semibold">Professional Electrical Services</span> • 
-            <span className="text-blue-300 font-medium"> Technical Consultations</span> • 
-            <span className="text-green-300 font-medium"> Project Planning</span>
+            <span className="text-white font-semibold">Professional Web Development</span> • 
+            <span className="text-blue-300 font-medium"> Custom Business Websites</span> • 
+            <span className="text-green-300 font-medium"> Modern & Responsive Design</span>
           </p>
         </div>
       </div>
