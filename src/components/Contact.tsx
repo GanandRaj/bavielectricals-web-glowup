@@ -247,12 +247,12 @@ const Contact = () => {
                               <SelectValue placeholder="Select your project type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-slate-800 border-white/20 z-[60]">
+                          <SelectContent className="bg-slate-800/95 backdrop-blur-sm border-white/20 shadow-2xl max-h-[200px] overflow-y-auto z-[9999]">
                             {projectOptions.map((option) => (
                               <SelectItem 
                                 key={option.value} 
                                 value={option.value}
-                                className="text-white hover:bg-white/10 focus:bg-white/10"
+                                className="text-white hover:bg-white/10 focus:bg-white/10 focus:text-white cursor-pointer"
                               >
                                 {option.label}
                               </SelectItem>
