@@ -247,7 +247,7 @@ const Contact = () => {
                               <SelectValue placeholder="Select your project type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-slate-800 border-white/20 z-[9999]">
+                          <SelectContent className="bg-slate-800 border-white/20 z-[60]">
                             {projectOptions.map((option) => (
                               <SelectItem 
                                 key={option.value} 

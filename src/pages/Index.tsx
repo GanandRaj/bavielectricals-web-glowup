@@ -9,6 +9,7 @@ const Projects = lazy(() => import('@/components/Projects'));
 const Team = lazy(() => import('@/components/Team'));
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
+const TeamConnect = lazy(() => import('@/components/TeamConnect'));
 const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
@@ -30,6 +31,9 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<div className="h-20 bg-gradient-to-r from-gray-100 to-gray-200 animate-pulse" />}>
         <Contact />
+      </Suspense>
+      <Suspense fallback={<div className="h-20 bg-gradient-to-r from-gray-100 to-gray-200 animate-pulse" />}>
+        <TeamConnect />
       </Suspense>
       <Suspense fallback={<div className="h-20 bg-gradient-to-r from-gray-100 to-gray-200 animate-pulse" />}>
         <Footer />
