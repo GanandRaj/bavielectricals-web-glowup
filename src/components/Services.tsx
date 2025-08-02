@@ -123,12 +123,7 @@ const Services = memo(() => {
                     className="group bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer"
                   >
                     <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
-                      <service.icon className={`h-6 w-6 text-2xl`} style={{
-                        background: `linear-gradient(135deg, ${service.color.includes('from-') ? service.color.split(' ')[0].replace('from-', '') : service.color.split(' ')[0]}, ${service.color.includes('to-') ? service.color.split(' ')[2]?.replace('to-', '') || service.color.split(' ')[1] : service.color.split(' ')[1]})`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                      }} />
+                      <service.icon className={`h-6 w-6 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
                     </div>
                     <h3 className="text-lg font-poppins font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                       {service.title}
