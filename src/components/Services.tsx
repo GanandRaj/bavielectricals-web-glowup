@@ -1,4 +1,4 @@
-import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp } from 'lucide-react';
+import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp, Power, Settings, AlertTriangle } from 'lucide-react';
 import { memo, useEffect, useState, useRef } from 'react';
 
 const Services = memo(() => {
@@ -17,7 +17,7 @@ const Services = memo(() => {
           // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 4000); // 4s delay to read banner
+          }, 3900); // 3.9s delay to read banner
         } else if (entry.intersectionRatio < 0.1) {
           // Reset when mostly leaving the section
           setBannerVisible(true);
@@ -54,7 +54,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-green-500/20"
     },
     {
-      icon: Wrench,
+      icon: Power,
       title: "Electrical Repairs",
       description: "Fast and reliable electrical repair services for all your electrical problems.",
       color: "from-yellow-500 to-orange-500",
@@ -62,7 +62,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-yellow-500/20"
     },
     {
-      icon: Zap,
+      icon: Settings,
       title: "Installation Services",
       description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
       color: "from-purple-500 to-purple-600",
@@ -78,7 +78,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-red-500/20"
     },
     {
-      icon: Clock,
+      icon: AlertTriangle,
       title: "Emergency Services",
       description: "24/7 emergency electrical services for urgent electrical issues and outages.",
       color: "from-indigo-500 to-indigo-600",
