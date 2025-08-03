@@ -163,7 +163,7 @@ const Services = memo(() => {
                     className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-2xl p-6 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
                   >
                     <div className={`${service.bgColor} ${service.hoverBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
-                      <service.icon className={`h-8 w-8 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
+                      <service.icon className="h-8 w-8 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
                     </div>
                     <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-4 group-hover:text-[#3c2a39] transition-colors duration-300">
                       {service.title}
