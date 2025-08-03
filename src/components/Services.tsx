@@ -131,14 +131,11 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/30 shadow-2xl">
-                <h2 className="text-6xl md:text-7xl font-poppins font-bold text-white mb-6 tracking-tight">
+              <div className="bg-gradient-to-br from-[#3c2a39]/20 to-[#3c2a39]/5 backdrop-blur-sm rounded-3xl p-12 border border-[#3c2a39]/30 shadow-2xl">
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight transform hover:scale-105 transition-transform duration-300 cursor-default">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-4"></div>
-                <p className="text-white/90 text-xl font-light max-w-md mx-auto">
-                  Professional electrical solutions for every need
-                </p>
+                <div className="w-40 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full mb-4"></div>
               </div>
             </div>
           </div>
@@ -148,10 +145,10 @@ const Services = memo(() => {
         <div className="relative z-0">
           <div className="pt-20 pb-10">
             <div className="text-center mb-16">
-              <h3 className="text-4xl md:text-5xl font-poppins font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-4">
-                What We Offer
-              </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full"></div>
+              <p className="text-2xl md:text-3xl font-['Fredoka'] font-medium text-foreground mb-4 max-w-4xl mx-auto leading-relaxed">
+                From simple repairs to complex installations, we provide comprehensive electrical services with the highest standards of safety and quality
+              </p>
+              <div className="w-32 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full"></div>
             </div>
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,17 +156,18 @@ const Services = memo(() => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="group bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer"
+                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-2xl p-8 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
                   >
-                    <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
-                      <service.icon className={`h-6 w-6 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
+                    <div className={`${service.bgColor} ${service.hoverBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
+                      <service.icon className={`h-8 w-8 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
                     </div>
-                    <h3 className="text-lg font-poppins font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-4 group-hover:text-[#3c2a39] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-foreground/80 transition-colors duration-300">
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                       {service.description}
                     </p>
+                    <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#3c2a39] to-transparent transition-all duration-500"></div>
                   </div>
                 ))}
               </div>
