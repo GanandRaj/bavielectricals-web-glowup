@@ -12,17 +12,20 @@ const Services = memo(() => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
           // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 1200); // 1.2s delay to read banner
-        } else if (!entry.isIntersecting) {
-          // Reset when leaving the section
+          }, 2000); // 2s delay to read banner
+        } else if (entry.intersectionRatio < 0.1) {
+          // Reset when mostly leaving the section
           setBannerVisible(true);
         }
       },
-      { threshold: [0, 0.4, 1] }
+      { 
+        threshold: [0, 0.1, 0.3, 0.5, 1],
+        rootMargin: '-10px 0px -10px 0px'
+      }
     );
 
     if (sectionRef.current) {
@@ -88,7 +91,7 @@ const Services = memo(() => {
       <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
         {/* Door-like Banner */}
         <div 
-          className={`absolute inset-0 z-10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center transition-transform duration-1000 ease-in-out ${
+          className={`absolute inset-0 z-10 bg-[#3c2a39] flex items-center justify-center transition-transform duration-1000 ease-in-out ${
             bannerVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
