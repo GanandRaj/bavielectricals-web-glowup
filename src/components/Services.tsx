@@ -1,4 +1,4 @@
-import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp, Lightbulb, Settings, CheckCircle } from 'lucide-react';
+import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp } from 'lucide-react';
 import { memo, useEffect, useState, useRef } from 'react';
 
 const Services = memo(() => {
@@ -16,7 +16,7 @@ const Services = memo(() => {
           // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 2000); // 2s delay to read banner
+          }, 4000); // 4s delay to read banner
         } else if (entry.intersectionRatio < 0.1) {
           // Reset when mostly leaving the section
           setBannerVisible(true);
@@ -53,7 +53,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-green-500/20"
     },
     {
-      icon: Lightbulb,
+      icon: Wrench,
       title: "Electrical Repairs",
       description: "Fast and reliable electrical repair services for all your electrical problems.",
       color: "from-yellow-500 to-orange-500",
@@ -61,7 +61,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-yellow-500/20"
     },
     {
-      icon: Settings,
+      icon: Zap,
       title: "Installation Services",
       description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
       color: "from-purple-500 to-purple-600",
@@ -69,7 +69,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-purple-500/20"
     },
     {
-      icon: CheckCircle,
+      icon: Shield,
       title: "Safety Inspections",
       description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
       color: "from-red-500 to-red-600",
@@ -134,11 +134,11 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-gradient-to-br from-[#3c2a39]/20 to-[#3c2a39]/5 backdrop-blur-sm rounded-3xl p-12 border border-[#3c2a39]/30 shadow-2xl">
-                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight transform hover:scale-105 transition-transform duration-300 cursor-default">
+              <div className="bg-black/90 backdrop-blur-sm rounded-3xl p-12 border border-white/20 shadow-2xl animate-pulse hover:animate-none transform hover:scale-105 transition-all duration-500">
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight animate-bounce cursor-default">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full mb-4"></div>
+                <div className="w-40 h-1 bg-gradient-to-r from-white to-white/50 mx-auto rounded-full mb-4 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@ const Services = memo(() => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-2xl p-8 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
+                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-2xl p-6 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
                   >
                     <div className={`${service.bgColor} ${service.hoverBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
                       <service.icon className={`h-8 w-8 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
