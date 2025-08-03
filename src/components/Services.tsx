@@ -2,6 +2,7 @@ import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp } from 'lucide-re
 import { memo, useEffect, useState, useRef } from 'react';
 
 const Services = memo(() => {
+  // Force rebuild to clear cache
   const [bannerVisible, setBannerVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
