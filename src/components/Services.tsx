@@ -17,7 +17,7 @@ const Services = memo(() => {
           // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 3900); // 3.9s delay to read banner
+          }, 3600); // 3.6s delay to read banner
         } else if (entry.intersectionRatio < 0.1) {
           // Reset when mostly leaving the section
           setBannerVisible(true);
