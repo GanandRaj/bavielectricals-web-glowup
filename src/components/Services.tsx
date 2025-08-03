@@ -92,15 +92,54 @@ const Services = memo(() => {
             bannerVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
-          <div className="text-center px-8">
-            <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/30 shadow-2xl">
-              <h2 className="text-6xl md:text-7xl font-poppins font-bold text-white mb-6 tracking-tight">
-                Our Services
-              </h2>
-              <div className="w-40 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-4"></div>
-              <p className="text-white/90 text-xl font-light max-w-md mx-auto">
-                Professional electrical solutions for every need
-              </p>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-8">
+            {/* Gearbox Animation */}
+            <div className="gearbox">
+              <div className="overlay"></div>
+              <div className="gear one">
+                <div className="gear-inner">
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                </div>
+              </div>
+              <div className="gear two">
+                <div className="gear-inner">
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                </div>
+              </div>
+              <div className="gear three">
+                <div className="gear-inner">
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                </div>
+              </div>
+              <div className="gear four large">
+                <div className="gear-inner">
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm rounded-3xl p-12 border border-primary/30 shadow-2xl">
+                <h2 className="text-6xl md:text-7xl font-poppins font-bold text-white mb-6 tracking-tight">
+                  Our Services
+                </h2>
+                <div className="w-40 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-4"></div>
+                <p className="text-white/90 text-xl font-light max-w-md mx-auto">
+                  Professional electrical solutions for every need
+                </p>
+              </div>
             </div>
           </div>
         </div>
