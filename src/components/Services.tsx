@@ -54,7 +54,7 @@ const Services = memo(() => {
       hoverBg: "group-hover:bg-green-500/20"
     },
     {
-      icon: Power,
+      icon: Wrench,
       title: "Electrical Repairs",
       description: "Fast and reliable electrical repair services for all your electrical problems.",
       color: "from-yellow-500 to-orange-500",
@@ -160,10 +160,10 @@ const Services = memo(() => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-2xl p-6 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
+                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-xl p-4 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
                   >
-                    <div className={`${service.bgColor} ${service.hoverBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
-                      <service.icon className="h-8 w-8 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
+                    <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
+                      <service.icon className="h-6 w-6 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
                     </div>
                     <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-4 group-hover:text-[#3c2a39] transition-colors duration-300">
                       {service.title}
