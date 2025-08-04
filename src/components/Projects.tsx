@@ -1,7 +1,6 @@
 
-import { ExternalLink, MapPin, Calendar, Award } from 'lucide-react';
-import { memo } from 'react';
-import { LazyImage } from './LazyImage';
+import { ExternalLink } from 'lucide-react';
+import { memo, useState } from 'react';
 
 const Projects = memo(() => {
   const projects = [
@@ -50,72 +49,47 @@ const Projects = memo(() => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-muted/30 via-background to-muted/20">
+    <section id="projects" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-            <Award className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Our Work</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-['Fredoka'] font-bold text-foreground mb-6">
-            Recent Projects
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            Our Recent Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Showcasing our commitment to excellence through quality electrical installations 
-            and innovative solutions across residential and commercial properties.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Take a look at some of our completed electrical projects. Each project showcases 
+            our commitment to quality, safety, and professional excellence.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mt-6"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.id}
-              className="group bg-card rounded-2xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 hover:border-primary/40"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
-              <div className="relative overflow-hidden">
-                <LazyImage
-                  src={project.image} 
-                  alt={project.buildingName}
-                  className={`w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 ${project.id === 2 ? 'object-top' : ''}`}
-                  placeholder="Loading..."
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                  <span className="text-xs font-medium text-primary-foreground">Completed</span>
-                </div>
-              </div>
-              
+              <img 
+                src={project.image} 
+                alt={project.buildingName}
+                className={`w-full h-64 object-cover rounded-t-lg ${project.id === 2 ? 'object-top' : ''}`}
+                loading="lazy"
+                decoding="async"
+              />
               <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-['Fredoka'] font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {project.buildingName}
-                  </h3>
-                  <Calendar className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
-                </div>
-                
-                <div className="flex items-center gap-2 mb-4">
-                  <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
-                  <p className="text-muted-foreground text-sm">
-                    {project.address}
-                  </p>
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <a 
-                    href={project.mapsLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-300 group/link"
-                  >
-                    View Location
-                    <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                  </a>
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <span className="text-xs font-bold text-primary">#{project.id}</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold text-black mb-3">
+                  {project.buildingName}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {project.address}
+                </p>
+                <a 
+                  href={project.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-black hover:text-gray-700 font-medium"
+                >
+                  View on Maps
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
               </div>
             </div>
           ))}

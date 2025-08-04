@@ -14,10 +14,10 @@ const Services = memo(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-          // Minimal delay for better UX
+          // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 1500); // 1.5s delay - much faster
+          }, 3950); // 3.95s delay to read banner
         } else if (entry.intersectionRatio < 0.1) {
           // Reset when mostly leaving the section
           setBannerVisible(true);
@@ -41,37 +41,49 @@ const Services = memo(() => {
       icon: Home,
       title: "Residential Electrical",
       description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
-      iconBg: "bg-blue-100"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-500/10",
+      hoverBg: "group-hover:bg-blue-500/20"
     },
     {
       icon: Building,
       title: "Commercial Electrical",
       description: "Professional electrical solutions for businesses, offices, and commercial properties.",
-      iconBg: "bg-green-100"
+      color: "from-green-500 to-green-600",
+      bgColor: "bg-green-500/10",
+      hoverBg: "group-hover:bg-green-500/20"
     },
     {
       icon: Wrench,
       title: "Electrical Repairs",
       description: "Fast and reliable electrical repair services for all your electrical problems.",
-      iconBg: "bg-orange-100"
+      color: "from-yellow-500 to-orange-500",
+      bgColor: "bg-yellow-500/10",
+      hoverBg: "group-hover:bg-yellow-500/20"
     },
     {
       icon: Settings,
       title: "Installation Services",
       description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
-      iconBg: "bg-purple-100"
+      color: "from-purple-500 to-purple-600",
+      bgColor: "bg-purple-500/10",
+      hoverBg: "group-hover:bg-purple-500/20"
     },
     {
       icon: Shield,
       title: "Safety Inspections",
       description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
-      iconBg: "bg-red-100"
+      color: "from-red-500 to-red-600",
+      bgColor: "bg-red-500/10",
+      hoverBg: "group-hover:bg-red-500/20"
     },
     {
       icon: AlertTriangle,
       title: "Emergency Services",
       description: "24/7 emergency electrical services for urgent electrical issues and outages.",
-      iconBg: "bg-indigo-100"
+      color: "from-indigo-500 to-indigo-600",
+      bgColor: "bg-indigo-500/10",
+      hoverBg: "group-hover:bg-indigo-500/20"
     }
   ];
 
@@ -80,8 +92,8 @@ const Services = memo(() => {
       <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
         {/* Door-like Banner */}
         <div 
-          className={`absolute inset-0 z-10 bg-gradient-to-br from-[#d9c1a6] via-[#d9c1a6] to-[#b8a081] flex items-center justify-center transition-all duration-700 ease-out transform ${
-            bannerVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+          className={`absolute inset-0 z-10 bg-[#3c2a39] flex items-center justify-center transition-transform duration-1000 ease-in-out ${
+            bannerVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-8">
@@ -123,11 +135,11 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-md rounded-3xl p-12 border border-white/30 shadow-2xl hover:shadow-white/20 transform hover:scale-105 transition-all duration-500 hover:bg-white/30 animate-fade-in">
-                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-[#3c2a39] mb-6 tracking-tight cursor-default hover:animate-pulse">
+              <div className="bg-black/90 backdrop-blur-sm rounded-3xl p-12 border border-white/20 shadow-2xl animate-pulse hover:animate-none transform hover:scale-105 transition-all duration-500">
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight animate-bounce cursor-default">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full mb-4 hover:animate-pulse"></div>
+                <div className="w-40 h-1 bg-gradient-to-r from-white to-white/50 mx-auto rounded-full mb-4 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -148,18 +160,18 @@ const Services = memo(() => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="group bg-card backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer"
+                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-xl p-4 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
                   >
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 shadow-lg group-hover:shadow-xl ${service.iconBg}`}>
-                      <service.icon className="h-7 w-7 text-muted-foreground transition-transform duration-300 group-hover:rotate-6" />
+                    <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
+                      <service.icon className="h-6 w-6 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
                     </div>
-                    <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-4 group-hover:text-[#3c2a39] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300 text-sm">
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                       {service.description}
                     </p>
-                    <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-primary to-transparent transition-all duration-300"></div>
+                    <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#3c2a39] to-transparent transition-all duration-500"></div>
                   </div>
                 ))}
               </div>
