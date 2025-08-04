@@ -41,37 +41,37 @@ const Services = memo(() => {
       icon: Home,
       title: "Residential Electrical",
       description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
-      bgColor: "bg-blue-50/80 hover:bg-blue-100/80 border-blue-100/50"
+      iconBg: "bg-blue-100"
     },
     {
       icon: Building,
       title: "Commercial Electrical",
       description: "Professional electrical solutions for businesses, offices, and commercial properties.",
-      bgColor: "bg-green-50/80 hover:bg-green-100/80 border-green-100/50"
+      iconBg: "bg-green-100"
     },
     {
       icon: Wrench,
       title: "Electrical Repairs",
       description: "Fast and reliable electrical repair services for all your electrical problems.",
-      bgColor: "bg-orange-50/80 hover:bg-orange-100/80 border-orange-100/50"
+      iconBg: "bg-orange-100"
     },
     {
       icon: Settings,
       title: "Installation Services",
       description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
-      bgColor: "bg-purple-50/80 hover:bg-purple-100/80 border-purple-100/50"
+      iconBg: "bg-purple-100"
     },
     {
       icon: Shield,
       title: "Safety Inspections",
       description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
-      bgColor: "bg-red-50/80 hover:bg-red-100/80 border-red-100/50"
+      iconBg: "bg-red-100"
     },
     {
       icon: AlertTriangle,
       title: "Emergency Services",
       description: "24/7 emergency electrical services for urgent electrical issues and outages.",
-      bgColor: "bg-indigo-50/80 hover:bg-indigo-100/80 border-indigo-100/50"
+      iconBg: "bg-indigo-100"
     }
   ];
 
@@ -148,9 +148,9 @@ const Services = memo(() => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className={`group backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer ${service.bgColor}`}
+                    className="group bg-card backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer"
                   >
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 bg-muted/50 hover:bg-muted/70 shadow-lg group-hover:shadow-xl">
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 shadow-lg group-hover:shadow-xl ${service.iconBg}`}>
                       <service.icon className="h-7 w-7 text-muted-foreground transition-transform duration-300 group-hover:rotate-6" />
                     </div>
                     <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
