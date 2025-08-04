@@ -92,7 +92,7 @@ const Services = memo(() => {
       <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
         {/* Door-like Banner */}
         <div 
-          className={`absolute inset-0 z-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 flex items-center justify-center transition-all duration-700 ease-out transform ${
+          className={`absolute inset-0 z-10 bg-gradient-to-br from-[#d9c1a6] via-[#d9c1a6]/95 to-primary/90 flex items-center justify-center transition-all duration-700 ease-out transform ${
             bannerVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
         >
@@ -135,11 +135,11 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-card/95 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 shadow-2xl hover:shadow-primary/20 transform hover:scale-105 transition-all duration-500">
-                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-primary-foreground mb-6 tracking-tight cursor-default">
+              <div className="bg-card/95 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 shadow-2xl hover:shadow-primary/20 transform hover:scale-105 transition-all duration-500 animate-pulse hover:animate-none">
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-primary-foreground mb-6 tracking-tight cursor-default animate-bounce">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-primary-foreground to-primary-foreground/50 mx-auto rounded-full mb-4"></div>
+                <div className="w-40 h-1 bg-gradient-to-r from-primary-foreground to-primary-foreground/50 mx-auto rounded-full mb-4 animate-shimmer"></div>
               </div>
             </div>
           </div>
