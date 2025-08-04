@@ -40,50 +40,32 @@ const Services = memo(() => {
     {
       icon: Home,
       title: "Residential Electrical",
-      description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-500/10",
-      hoverBg: "group-hover:bg-blue-500/20"
+      description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades."
     },
     {
       icon: Building,
       title: "Commercial Electrical",
-      description: "Professional electrical solutions for businesses, offices, and commercial properties.",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-500/10",
-      hoverBg: "group-hover:bg-green-500/20"
+      description: "Professional electrical solutions for businesses, offices, and commercial properties."
     },
     {
       icon: Wrench,
       title: "Electrical Repairs",
-      description: "Fast and reliable electrical repair services for all your electrical problems.",
-      color: "from-yellow-500 to-orange-500",
-      bgColor: "bg-yellow-500/10",
-      hoverBg: "group-hover:bg-yellow-500/20"
+      description: "Fast and reliable electrical repair services for all your electrical problems."
     },
     {
       icon: Settings,
       title: "Installation Services",
-      description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-500/10",
-      hoverBg: "group-hover:bg-purple-500/20"
+      description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches."
     },
     {
       icon: Shield,
       title: "Safety Inspections",
-      description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-500/10",
-      hoverBg: "group-hover:bg-red-500/20"
+      description: "Comprehensive electrical safety inspections to ensure your property is up to code."
     },
     {
       icon: AlertTriangle,
       title: "Emergency Services",
-      description: "24/7 emergency electrical services for urgent electrical issues and outages.",
-      color: "from-indigo-500 to-indigo-600",
-      bgColor: "bg-indigo-500/10",
-      hoverBg: "group-hover:bg-indigo-500/20"
+      description: "24/7 emergency electrical services for urgent electrical issues and outages."
     }
   ];
 
@@ -162,8 +144,8 @@ const Services = memo(() => {
                     key={index}
                     className="group bg-gradient-to-br from-card to-card/80 backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 cursor-pointer"
                   >
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br ${service.color} shadow-lg group-hover:shadow-xl`}>
-                      <service.icon className="h-7 w-7 text-white transition-transform duration-300 group-hover:rotate-6" />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 bg-muted/50 hover:bg-muted/70 shadow-lg group-hover:shadow-xl">
+                      <service.icon className="h-7 w-7 text-muted-foreground transition-transform duration-300 group-hover:rotate-6" />
                     </div>
                     <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                       {service.title}
