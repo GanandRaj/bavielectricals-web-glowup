@@ -92,7 +92,7 @@ const Services = memo(() => {
       <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
         {/* Door-like Banner */}
         <div 
-          className={`absolute inset-0 z-10 bg-gradient-to-br from-[#d9c1a6] via-[#d9c1a6]/95 to-primary/90 flex items-center justify-center transition-all duration-700 ease-out transform ${
+          className={`absolute inset-0 z-10 bg-gradient-to-br from-[#d9c1a6] via-[#d9c1a6] to-[#b8a081] flex items-center justify-center transition-all duration-700 ease-out transform ${
             bannerVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
         >
@@ -135,11 +135,11 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-card/95 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 shadow-2xl hover:shadow-primary/20 transform hover:scale-105 transition-all duration-500 animate-pulse hover:animate-none">
-                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-primary-foreground mb-6 tracking-tight cursor-default animate-bounce">
+              <div className="bg-white/20 backdrop-blur-md rounded-3xl p-12 border border-white/30 shadow-2xl hover:shadow-white/20 transform hover:scale-105 transition-all duration-500 hover:bg-white/30 animate-fade-in">
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-[#3c2a39] mb-6 tracking-tight cursor-default hover:animate-pulse">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-primary-foreground to-primary-foreground/50 mx-auto rounded-full mb-4 animate-shimmer"></div>
+                <div className="w-40 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full mb-4 hover:animate-pulse"></div>
               </div>
             </div>
           </div>
