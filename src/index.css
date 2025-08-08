@@ -29,6 +29,13 @@ html {
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
+    /* Enhanced design tokens */
+    --gradient-banner: linear-gradient(135deg, #3c2a39 0%, #6b4567 25%, #8b5a8c 50%, #a855f7 75%, #3c2a39 100%);
+    --gradient-subtle: linear-gradient(180deg, transparent 0%, hsl(var(--muted)) / 0.5 100%);
+    --shadow-elegant: 0 20px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 50px hsl(300 50% 70% / 0.4);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 

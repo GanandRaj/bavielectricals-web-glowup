@@ -86,19 +86,48 @@ const Team = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="bg-black text-white py-8 px-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-4">Join Our Team</h3>
-            <p className="text-lg text-gray-300 mb-6">
-              We're always looking for skilled electricians to join our growing team. 
-              If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
-            </p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-all duration-300"
-            >
-              Contact Us About Careers
-            </button>
+        <div className="mt-12">
+          <div className="bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground rounded-2xl overflow-hidden shadow-2xl">
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Image Section */}
+              <div className="lg:w-1/2 h-80 lg:h-96 relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg"
+                  alt="Professional electrical team working together"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent"></div>
+              </div>
+              
+              {/* Content Section */}
+              <div className="lg:w-1/2 p-8 lg:p-12">
+                <h3 className="text-3xl lg:text-4xl font-['Fredoka'] font-bold mb-6">Join Our Team</h3>
+                <p className="text-lg lg:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+                  We're always looking for skilled electricians to join our growing team. 
+                  If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
+                    <span className="text-primary-foreground/90">Competitive salary and benefits</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
+                    <span className="text-primary-foreground/90">Professional development opportunities</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
+                    <span className="text-primary-foreground/90">Supportive team environment</span>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary font-['Fredoka'] font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  Contact Us About Careers
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

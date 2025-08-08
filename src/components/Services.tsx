@@ -92,9 +92,13 @@ const Services = memo(() => {
       <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
         {/* Door-like Banner */}
         <div 
-          className={`absolute inset-0 z-10 bg-[#3c2a39] flex items-center justify-center transition-transform duration-1000 ease-in-out ${
+          className={`absolute inset-0 z-10 bg-gradient-to-br from-[#3c2a39] via-[#6b4567] to-[#8b5a8c] flex items-center justify-center transition-transform duration-1000 ease-in-out ${
             bannerVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
+          style={{
+            background: 'var(--gradient-banner)',
+            boxShadow: 'var(--shadow-glow), inset 0 0 100px rgba(168, 85, 247, 0.2)'
+          }}
         >
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-8">
             {/* Gearbox Animation */}
@@ -135,11 +139,12 @@ const Services = memo(() => {
 
             {/* Text Content */}
             <div className="text-center">
-              <div className="bg-black/90 backdrop-blur-sm rounded-3xl p-12 border border-white/20 shadow-2xl animate-pulse hover:animate-none transform hover:scale-105 transition-all duration-500">
-                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight animate-bounce cursor-default">
+              <div className="bg-gradient-to-br from-black/95 via-purple-900/90 to-black/95 backdrop-blur-lg rounded-3xl p-12 border border-white/30 shadow-2xl hover:shadow-purple-500/30 animate-pulse hover:animate-none transform hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+                <h2 className="text-6xl md:text-7xl font-['Fredoka'] font-bold text-white mb-6 tracking-tight animate-bounce cursor-default relative z-10">
                   Our Services
                 </h2>
-                <div className="w-40 h-1 bg-gradient-to-r from-white to-white/50 mx-auto rounded-full mb-4 animate-pulse"></div>
+                <div className="w-40 h-1 bg-gradient-to-r from-white via-purple-300 to-white/50 mx-auto rounded-full mb-4 animate-pulse relative z-10"></div>
               </div>
             </div>
           </div>
