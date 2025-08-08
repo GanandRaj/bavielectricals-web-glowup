@@ -86,19 +86,31 @@ const Team = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="bg-black text-white py-8 px-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-4">Join Our Team</h3>
-            <p className="text-lg text-gray-300 mb-6">
-              We're always looking for skilled electricians to join our growing team. 
-              If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
-            </p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-all duration-300"
-            >
-              Contact Us About Careers
-            </button>
+        <div className="mt-12">
+          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="relative min-h-[260px] md:min-h-[320px]">
+                <img 
+                  src="/lovable-uploads/b802d072-7a7d-4470-9487-e05db371ca0d.png" 
+                  alt="Join our team illustration"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4 text-foreground">Join Our Team</h3>
+                <p className="text-lg text-muted-foreground mb-6">
+                  We're always looking for skilled electricians to join our growing team. If you're passionate about electrical work and committed to excellence, we'd love to hear from you.
+                </p>
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="self-start bg-[hsl(var(--brand-2))] hover:bg-[hsl(var(--brand-3))] text-[hsl(var(--primary-foreground))] font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow"
+                >
+                  Contact Us About Careers
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
