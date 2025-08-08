@@ -17,7 +17,7 @@ const Services = memo(() => {
           // Delay the banner lift to let users see the banner content
           setTimeout(() => {
             setBannerVisible(false);
-          }, 3950); // 3.95s delay to read banner
+          }, 3600); // 3.6s delay to read banner
         } else if (entry.intersectionRatio < 0.1) {
           // Reset when mostly leaving the section
           setBannerVisible(true);
@@ -147,7 +147,7 @@ const Services = memo(() => {
 
         {/* Services Content */}
         <div className="relative z-0">
-          <div className="pt-8 pb-10">
+          <div className="pt-20 pb-10">
             <div className="text-center mb-16">
               <p className="text-2xl md:text-3xl font-['Fredoka'] font-medium text-foreground mb-4 max-w-4xl mx-auto leading-relaxed">
                 From simple repairs to complex installations, we provide comprehensive electrical services with the highest standards of safety and quality

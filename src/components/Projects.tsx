@@ -49,13 +49,13 @@ const Projects = memo(() => {
   ];
 
   return (
-    <section id="projects" className="py-16 bg-background">
+    <section id="projects" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Our Recent Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Take a look at some of our completed electrical projects. Each project showcases 
             our commitment to quality, safety, and professional excellence.
           </p>
@@ -65,7 +65,7 @@ const Projects = memo(() => {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-card border border-border rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+              className="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 hover:transform hover:scale-105"
             >
               <img 
                 src={project.image} 
@@ -75,17 +75,17 @@ const Projects = memo(() => {
                 decoding="async"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-semibold text-black mb-3">
                   {project.buildingName}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-600 mb-4">
                   {project.address}
                 </p>
                 <a 
                   href={project.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-foreground hover:text-muted-foreground font-medium"
+                  className="inline-flex items-center text-black hover:text-gray-700 font-medium"
                 >
                   View on Maps
                   <ExternalLink className="ml-2 h-4 w-4" />
