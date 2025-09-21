@@ -138,4 +138,14 @@ html {
   .contain-layout {
     contain: layout;
   }
+  
+  /* Brand scrolling animation */
+  @keyframes scroll-brands {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }

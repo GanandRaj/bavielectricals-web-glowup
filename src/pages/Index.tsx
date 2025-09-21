@@ -19,6 +19,9 @@ const Services = lazy(() =>
 const Projects = lazy(() => 
   import('@/components/Projects').then(module => ({ default: module.default }))
 );
+const Brands = lazy(() => 
+  import('@/components/Brands').then(module => ({ default: module.default }))
+);
 const Team = lazy(() => 
   import('@/components/Team').then(module => ({ default: module.default }))
 );
@@ -45,6 +48,9 @@ const Index = memo(() => {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <Projects />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <Brands />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <Team />
