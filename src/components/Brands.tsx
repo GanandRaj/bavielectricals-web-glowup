@@ -35,15 +35,15 @@ const Brands = memo(() => {
         </div>
 
         {/* Infinite scroll container */}
-        <div className="relative bg-gradient-to-r from-gray-50 via-white to-gray-50 rounded-2xl p-8 shadow-inner">
-          {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 rounded-l-2xl"></div>
-          <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 rounded-r-2xl"></div>
+        <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 overflow-hidden">
+          {/* Subtle gradient masks for smooth edge fade */}
+          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           
           {/* Scrolling brands container */}
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <div 
-              className="flex items-center gap-12 animate-scroll-brands"
+              className="flex items-center gap-8 animate-scroll-brands"
               style={{
                 animation: 'scroll-brands 40s linear infinite'
               }}
@@ -51,19 +51,19 @@ const Brands = memo(() => {
               {duplicatedBrands.map((brand, index) => (
                 <div
                   key={`${brand.name}-${index}`}
-                  className="flex-shrink-0 w-48 h-28 bg-white rounded-xl shadow-lg border-2 border-gray-100 flex items-center justify-center p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-300 group"
+                  className="flex-shrink-0 w-44 h-32 bg-white rounded-lg shadow-md border border-gray-200 flex flex-col items-center justify-center p-4 hover:shadow-lg hover:border-primary/50 transition-all duration-300 group"
                 >
-                  <div className="w-full h-full flex flex-col items-center justify-center">
+                  <div className="flex-1 flex items-center justify-center mb-2">
                     <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
-                      className="max-w-full max-h-16 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300"
+                      className="max-w-full max-h-16 w-auto h-auto object-contain transition-all duration-300"
                       loading="lazy"
                     />
-                    <span className="text-xs font-semibold text-foreground/60 mt-2 group-hover:text-primary transition-colors duration-300">
-                      {brand.name}
-                    </span>
                   </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-primary transition-colors duration-300 text-center">
+                    {brand.name}
+                  </span>
                 </div>
               ))}
             </div>
