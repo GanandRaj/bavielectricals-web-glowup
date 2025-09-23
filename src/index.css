@@ -139,13 +139,13 @@ html {
     contain: layout;
   }
   
-  /* Brand scrolling animation */
+  /* Brand scrolling animation - seamless infinite loop */
   @keyframes scroll-brands {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(calc(-100% / 3));
     }
   }
 }

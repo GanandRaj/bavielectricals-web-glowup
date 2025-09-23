@@ -6,20 +6,28 @@ import gmLogo from '@/assets/brands/gm-logo.png';
 import anchorLogo from '@/assets/brands/anchor-logo.png';
 import romaLogo from '@/assets/brands/roma-logo.png';
 import finolexLogo from '@/assets/brands/finolex-logo.png';
-import rrKabelLogo from '@/assets/brands/rr-kabel-logo.png';
+import havellsLogo from '@/assets/brands/havells-logo.png';
+import polycabLogo from '@/assets/brands/polycab-logo.png';
+import cromptonLogo from '@/assets/brands/crompton-logo.png';
+import bajajLogo from '@/assets/brands/bajaj-logo.png';
+import legrandLogo from '@/assets/brands/legrand-logo.png';
 
 const Brands = memo(() => {
   const brands = [
     { name: 'V-Guard', logo: vguardLogo },
-    { name: 'GM Modular', logo: gmLogo },
+    { name: 'Havells', logo: havellsLogo },
+    { name: 'Polycab', logo: polycabLogo },
     { name: 'Anchor', logo: anchorLogo },
+    { name: 'Crompton', logo: cromptonLogo },
+    { name: 'Bajaj Electricals', logo: bajajLogo },
+    { name: 'Legrand', logo: legrandLogo },
+    { name: 'GM Modular', logo: gmLogo },
     { name: 'Roma', logo: romaLogo },
-    { name: 'Finolex', logo: finolexLogo },
-    { name: 'RR Kabel', logo: rrKabelLogo }
+    { name: 'Finolex', logo: finolexLogo }
   ];
 
-  // Duplicate the brands array to create seamless loop
-  const duplicatedBrands = [...brands, ...brands];
+  // Triple the brands array to create truly seamless loop
+  const duplicatedBrands = [...brands, ...brands, ...brands];
 
   return (
     <section className="py-20 bg-white relative overflow-hidden border-t border-b border-gray-200">
@@ -43,9 +51,9 @@ const Brands = memo(() => {
           {/* Scrolling brands container */}
           <div className="flex items-center justify-center">
             <div 
-              className="flex items-center gap-8 animate-scroll-brands"
+              className="flex items-center gap-8"
               style={{
-                animation: 'scroll-brands 40s linear infinite'
+                animation: 'scroll-brands 60s linear infinite'
               }}
             >
               {duplicatedBrands.map((brand, index) => (
@@ -71,12 +79,12 @@ const Brands = memo(() => {
         </div>
 
         {/* Additional info with better styling */}
-        <div className="text-center mt-12 p-6 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
-          <p className="text-lg font-medium text-primary mb-2">
+        <div className="text-center mt-12 p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
+          <p className="text-xl font-semibold text-primary mb-3">
             Authorized Dealers & Certified Installers
           </p>
-          <p className="text-sm text-foreground/70">
-            Premium electrical solutions with manufacturer warranty and technical support
+          <p className="text-base text-foreground/80 max-w-3xl mx-auto">
+            Premium electrical solutions with manufacturer warranty, technical support, and certified quality from India's leading electrical brands
           </p>
         </div>
       </div>
