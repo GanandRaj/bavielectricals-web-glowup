@@ -139,7 +139,7 @@ html {
     contain: layout;
   }
   
-  /* Brand scrolling animation - seamless infinite loop */
+  /* Ultra-smooth infinite scroll animation - completely seamless */
   @keyframes scroll-brands {
     0% {
       transform: translateX(0);
@@ -147,5 +147,13 @@ html {
     100% {
       transform: translateX(calc(-100% / 3));
     }
+  }
+  
+  /* Enhanced smooth scrolling performance */
+  .animate-scroll-brands {
+    animation: scroll-brands 90s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 }

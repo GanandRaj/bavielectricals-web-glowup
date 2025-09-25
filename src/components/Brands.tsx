@@ -9,8 +9,11 @@ import finolexLogo from '@/assets/brands/finolex-logo.png';
 import havellsLogo from '@/assets/brands/havells-logo.png';
 import polycabLogo from '@/assets/brands/polycab-logo.png';
 import cromptonLogo from '@/assets/brands/crompton-logo.png';
-import bajajLogo from '@/assets/brands/bajaj-logo.png';
 import legrandLogo from '@/assets/brands/legrand-logo.png';
+import norisysLogo from '@/assets/brands/norisys-logo.png';
+import goldmedalLogo from '@/assets/brands/goldmedal-logo.png';
+import schneiderLogo from '@/assets/brands/schneider-logo.png';
+import rrKabelLogo from '@/assets/brands/rr-kabel-logo.png';
 
 const Brands = memo(() => {
   const brands = [
@@ -19,8 +22,11 @@ const Brands = memo(() => {
     { name: 'Polycab', logo: polycabLogo },
     { name: 'Anchor', logo: anchorLogo },
     { name: 'Crompton', logo: cromptonLogo },
-    { name: 'Bajaj Electricals', logo: bajajLogo },
     { name: 'Legrand', logo: legrandLogo },
+    { name: 'Norisys', logo: norisysLogo },
+    { name: 'Goldmedal', logo: goldmedalLogo },
+    { name: 'Schneider Electric', logo: schneiderLogo },
+    { name: 'RR Kabel', logo: rrKabelLogo },
     { name: 'GM Modular', logo: gmLogo },
     { name: 'Roma', logo: romaLogo },
     { name: 'Finolex', logo: finolexLogo }
@@ -51,10 +57,7 @@ const Brands = memo(() => {
           {/* Scrolling brands container */}
           <div className="flex items-center justify-center">
             <div 
-              className="flex items-center gap-8"
-              style={{
-                animation: 'scroll-brands 60s linear infinite'
-              }}
+              className="flex items-center gap-12 animate-scroll-brands"
             >
               {duplicatedBrands.map((brand, index) => (
                 <div
