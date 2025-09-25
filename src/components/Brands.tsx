@@ -1,4 +1,6 @@
 import { memo } from 'react';
+import { cn } from '@/lib/utils';
+
 
 // Import brand logos
 import vguardLogo from '@/assets/brands/v-guard-logo.png';
@@ -32,8 +34,12 @@ const Brands = memo(() => {
     { name: 'Finolex', logo: finolexLogo }
   ];
 
-  // Triple the brands array to create truly seamless loop
-  const duplicatedBrands = [...brands, ...brands, ...brands];
+  // Boost small logos for better visibility
+  const logoBoost: Record<string, string> = {
+    'Norisys': 'scale-[1.18]',
+    'Roma': 'scale-[1.22]',
+    'Finolex': 'scale-[1.15]'
+  };
 
   return (
     <section className="py-20 bg-white relative overflow-hidden border-t border-b border-gray-200">
