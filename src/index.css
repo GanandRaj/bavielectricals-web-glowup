@@ -139,29 +139,12 @@ html {
     contain: layout;
   }
   
-  /* Ultra-smooth infinite scroll animation - completely seamless */
-  @keyframes scroll-brands {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100% / 3));
-    }
-  }
-  
-  /* Enhanced smooth scrolling performance */
-  .animate-scroll-brands {
-    animation: scroll-brands 90s linear infinite;
-    will-change: transform;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-  }
-
-  /* Two-track marquee for truly seamless loop (0 -> -50%) */
+  /* Two-track marquee for perfectly seamless loop */
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+  
   .animate-marquee {
     animation: marquee 80s linear infinite;
     will-change: transform;
