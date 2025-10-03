@@ -54,12 +54,6 @@ const Header = memo(() => {
             >
               Contact
             </button>
-            <a 
-              href="/admin"
-              className="text-white hover:text-gray-300 transition-colors font-medium"
-            >
-              Admin
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -105,12 +99,6 @@ const Header = memo(() => {
               >
                 Contact
               </button>
-              <a 
-                href="/admin"
-                className="text-white hover:text-gray-300 transition-colors font-medium text-left"
-              >
-                Admin
-              </a>
             </nav>
           </div>
         )}

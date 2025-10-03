@@ -1,20 +1,7 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  image_url: string | null;
-  phone: string | null;
-  email: string | null;
-}
+import { Mail, Phone } from 'lucide-react';
 
 const Team = () => {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
-
   const ceo = {
     name: "Amalodh Bavi",
     position: "CEO & Master Electrician",
@@ -22,27 +9,28 @@ const Team = () => {
     message: "Hard work and team effort - that's what makes Amalodhbhavi Electricals successful. Our commitment to excellence and dedication to our craft has built the foundation of trust with our clients. Together, we illuminate every project with precision and passion."
   };
 
-  useEffect(() => {
-    fetchTeamMembers();
-  }, []);
-
-  const fetchTeamMembers = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('team_members')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-
-      setTeamMembers(data || []);
-    } catch (error) {
-      console.error('Error fetching team members:', error);
-      toast.error('Failed to load team members');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const employees = [
+    { id: 1, name: "Rajesh Kumar", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" },
+    { id: 2, name: "Priya Sharma", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" },
+    { id: 3, name: "Vikram Singh", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face" },
+    { id: 4, name: "Suresh Reddy", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face" },
+    { id: 5, name: "Anjali Devi", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" },
+    { id: 6, name: "Ravi Krishnan", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&h=200&fit=crop&crop=face" },
+    { id: 7, name: "Meera Nair", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" },
+    { id: 8, name: "Kiran Patel", image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=200&h=200&fit=crop&crop=face" },
+    { id: 9, name: "Lakshmi Rao", image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&crop=face" },
+    { id: 10, name: "Arjun Gupta", image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=200&h=200&fit=crop&crop=face" },
+    { id: 11, name: "Divya Menon", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=face" },
+    { id: 12, name: "Sanjay Iyer", image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&h=200&fit=crop&crop=face" },
+    { id: 13, name: "Kavitha Bhat", image: "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?w=200&h=200&fit=crop&crop=face" },
+    { id: 14, name: "Mahesh Joshi", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200&h=200&fit=crop&crop=face" },
+    { id: 15, name: "Rashmi Pillai", image: "https://images.unsplash.com/photo-1502378735452-bc7d86632805?w=200&h=200&fit=crop&crop=face" },
+    { id: 16, name: "Deepak Verma", image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?w=200&h=200&fit=crop&crop=face" },
+    { id: 17, name: "Sunitha Rajan", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" },
+    { id: 18, name: "Ashwin Kumar", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" },
+    { id: 19, name: "Gayathri Nair", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=200&h=200&fit=crop&crop=face" },
+    { id: 20, name: "Ramesh Babu", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" }
+  ];
 
   return (
     <section id="team" className="py-16 bg-gray-100">
@@ -81,39 +69,21 @@ const Team = () => {
         {/* Employee Grid */}
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-center text-black mb-8">Our Team</h3>
-          
-          {loading ? (
-            <div className="text-center py-12">
-              <p className="text-gray-600">Loading team members...</p>
-            </div>
-          ) : teamMembers.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-600">No team members available yet.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {teamMembers.map((member) => (
-                <div 
-                  key={member.id}
-                  className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
-                >
-                  {member.image_url ? (
-                    <img 
-                      src={member.image_url} 
-                      alt={member.name}
-                      className="w-20 h-20 mx-auto object-cover rounded-full mb-3"
-                    />
-                  ) : (
-                    <div className="w-20 h-20 mx-auto bg-gray-200 rounded-full mb-3 flex items-center justify-center">
-                      <span className="text-gray-400 text-xs">No photo</span>
-                    </div>
-                  )}
-                  <h4 className="text-sm font-medium text-black mb-1">{member.name}</h4>
-                  <p className="text-xs text-gray-500">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {employees.map((employee) => (
+              <div 
+                key={employee.id}
+                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+              >
+                <img 
+                  src={employee.image} 
+                  alt={employee.name}
+                  className="w-20 h-20 mx-auto object-cover rounded-full mb-3"
+                />
+                <h4 className="text-sm font-medium text-black">{employee.name}</h4>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Join Our Team Section */}

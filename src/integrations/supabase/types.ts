@@ -14,72 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      projects: {
-        Row: {
-          created_at: string | null
-          date: string | null
-          description: string | null
-          id: string
-          image_url: string | null
-          location: string | null
-          title: string
-          updated_at: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          date?: string | null
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          title: string
-          updated_at?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          date?: string | null
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          title?: string
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
-      team_members: {
-        Row: {
-          created_at: string | null
-          email: string | null
-          id: string
-          image_url: string | null
-          name: string
-          phone: string | null
-          role: string
-          updated_at: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          email?: string | null
-          id?: string
-          image_url?: string | null
-          name: string
-          phone?: string | null
-          role: string
-          updated_at?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          email?: string | null
-          id?: string
-          image_url?: string | null
-          name?: string
-          phone?: string | null
-          role?: string
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
