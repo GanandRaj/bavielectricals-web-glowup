@@ -2,6 +2,7 @@
 import { lazy, Suspense, memo } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import ChatAssistant from '@/components/ChatAssistant';
 
 // Enhanced loading skeleton component
 const SectionSkeleton = memo(() => (
@@ -43,6 +44,7 @@ const Index = memo(() => {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <ChatAssistant />
       <Suspense fallback={<SectionSkeleton />}>
         <Services />
       </Suspense>
