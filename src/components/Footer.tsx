@@ -1,12 +1,13 @@
 
 import { Zap, Phone, Mail, MapPin, Award, Shield, Clock } from 'lucide-react';
+import FooterMap from './FooterMap';
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
                 <Zap className="h-7 w-7 text-white" />
@@ -35,91 +36,40 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Services
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Projects
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Team
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  About
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
             <h3 className="text-lg font-semibold mb-6 text-white">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 group">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-8 h-8 rounded-lg flex items-center justify-center">
-                  <Phone className="h-4 w-4 text-white" />
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-5 w-5 text-white" />
                 </div>
                 <a href="tel:+919989030669" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
                   +91 9989030669
                 </a>
               </div>
               <div className="flex items-center space-x-3 group">
-                <div className="bg-gradient-to-br from-green-500 to-green-600 w-8 h-8 rounded-lg flex items-center justify-center">
-                  <Mail className="h-4 w-4 text-white" />
+                <div className="bg-gradient-to-br from-green-500 to-green-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-5 w-5 text-white" />
                 </div>
                 <a href="mailto:amalodhbhavielectricals@gmail.com" className="text-gray-300 hover:text-white transition-colors text-sm font-medium break-all">
                   amalodhbhavielectricals@gmail.com
                 </a>
               </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-8 h-8 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-4 w-4 text-white" />
+              <div className="flex items-start space-x-3 group">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-5 w-5 text-white" />
                 </div>
                 <a 
                   href="https://www.google.com/maps/place/Amalodbhavi+electricals/@16.2562131,80.0135773,20.88z/data=!4m6!3m5!1s0x3a4a81e0d2761cdb:0x2fca70a5109fa58!8m2!3d16.2561751!4d80.0138303!16s%2Fg%2F11hyx7ys__?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer"
+                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer pt-2"
                 >
-                  Serving Your Local Area
+                  D.No 3-14 Main Road, Opposite CSB Bank, Ravipadu
                 </a>
               </div>
+            </div>
+            <div className="mt-6">
+              <FooterMap />
             </div>
           </div>
 
