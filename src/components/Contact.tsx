@@ -9,9 +9,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -44,20 +44,22 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        project_type: data.project,
-        message: data.message,
-        to_email: 'amalodhbhavielectricals@gmail.com',
-      };
+      const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: data.name,
+          email: data.email,
+          project: data.project,
+          message: data.message,
+        },
+      });
 
-      await emailjs.send(
-        'service_esenrbj',
-        'template_b39kqxf',
-        templateParams,
-        'vz6TqWhOnLpStHwYg'
-      );
+      if (error) {
+        throw error;
+      }
+
+      if (responseData?.error) {
+        throw new Error(responseData.error);
+      }
 
       toast({
         title: 'Message Sent Successfully!',
@@ -66,7 +68,7 @@ const Contact = () => {
 
       form.reset();
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('Email sending error:', error);
       toast({
         title: 'Failed to Send Message',
         description: 'Please try again or contact us directly.',
