@@ -1,10 +1,7 @@
-
 import { Zap, Phone, Mail, MapPin, Award, Shield, Clock } from 'lucide-react';
 import FooterMap from './FooterMap';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white py-16">
+  return <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="md:col-span-1">
@@ -13,9 +10,7 @@ const Footer = () => {
                 <Zap className="h-7 w-7 text-white" />
               </div>
               <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  Amalodhbhavi Electricals
-                </span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Amalodbhavi Electricals</span>
                 <p className="text-sm text-gray-400">Professional Electrical Solutions</p>
               </div>
             </div>
@@ -58,12 +53,7 @@ const Footer = () => {
                 <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
-                <a 
-                  href="https://www.google.com/maps/place/Amalodbhavi+electricals/@16.2562131,80.0135773,20.88z/data=!4m6!3m5!1s0x3a4a81e0d2761cdb:0x2fca70a5109fa58!8m2!3d16.2561751!4d80.0138303!16s%2Fg%2F11hyx7ys__?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer pt-2"
-                >
+                <a href="https://www.google.com/maps/place/Amalodbhavi+electricals/@16.2562131,80.0135773,20.88z/data=!4m6!3m5!1s0x3a4a81e0d2761cdb:0x2fca70a5109fa58!8m2!3d16.2561751!4d80.0138303!16s%2Fg%2F11hyx7ys__?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer pt-2">
                   D.No 3-14 Main Road, Opposite CSB Bank, Ravipadu
                 </a>
               </div>
@@ -108,8 +98,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
