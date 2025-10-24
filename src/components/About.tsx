@@ -1,5 +1,4 @@
 import { Award, Users, Clock, CheckCircle } from 'lucide-react';
-
 const About = () => {
   const features = [{
     icon: Award,
@@ -18,13 +17,9 @@ const About = () => {
     title: "Safety First",
     description: "Committed to the highest safety standards in every project"
   }];
-
-  return (
-    <section 
-      id="about" 
-      className="py-20 relative overflow-hidden" 
-      style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 30%, #D6A99D 70%, #c8a696 100%)' }}
-    >
+  return <section id="about" className="py-20 relative overflow-hidden" style={{
+    background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 30%, #D6A99D 70%, #c8a696 100%)'
+  }}>
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
@@ -34,19 +29,13 @@ const About = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-['Comic_Neue']">
-            About Amalodhbhavi Electricals
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-['Comic_Neue']">About Amalodbhavi Electricals</h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
-            <p className="text-lg text-foreground mb-6 leading-relaxed">
-              With years of experience in the electrical industry, Amalodh Bavi Electricals has been 
-              serving the community with professional, reliable, and safe electrical services. We take 
-              pride in our workmanship and commitment to customer satisfaction.
-            </p>
+            <p className="text-lg text-foreground mb-6 leading-relaxed">With years of experience in the electrical industry, Amalodbhavi Electricals has been serving the community with professional, reliable, and safe electrical services. We take pride in our workmanship and commitment to customer satisfaction.</p>
             <p className="text-lg text-foreground mb-8 leading-relaxed">
               Whether you need a simple repair, complete rewiring, or electrical installation for your 
               new construction project, our team has the expertise and dedication to get the job done 
@@ -70,8 +59,7 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center p-8 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            {features.map((feature, index) => <div key={index} className="text-center p-8 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg">
                   <feature.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
@@ -81,13 +69,10 @@ const About = () => {
                 <p className="text-foreground/80 text-sm leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
