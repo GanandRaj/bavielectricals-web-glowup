@@ -53,7 +53,7 @@ const Footer = () => {
                 <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
-                <a href="https://www.google.com/maps/place/Amalodbhavi+electricals/@16.2562131,80.0135773,20.88z/data=!4m6!3m5!1s0x3a4a81e0d2761cdb:0x2fca70a5109fa58!8m2!3d16.2561751!4d80.0138303!16s%2Fg%2F11hyx7ys__?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer pt-2">
+                <a href="https://maps.app.goo.gl/igNqR2N9pcDcSdqc6" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm font-medium cursor-pointer pt-2">
                   D.No 3-14 Main Road, Opposite CSB Bank, Ravipadu
                 </a>
               </div>
