@@ -73,14 +73,18 @@ const Team = () => {
             {employees.map((employee) => (
               <div 
                 key={employee.id}
-                className="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <img 
-                  src={employee.image} 
-                  alt={employee.name}
-                  className="w-20 h-20 mx-auto object-cover rounded-full mb-3"
-                />
-                <h4 className="text-sm font-medium text-black">{employee.name}</h4>
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={employee.image} 
+                    alt={employee.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-3 text-center">
+                  <h4 className="text-sm font-medium text-black">{employee.name}</h4>
+                </div>
               </div>
             ))}
           </div>
