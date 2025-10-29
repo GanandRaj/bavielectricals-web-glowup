@@ -1,7 +1,40 @@
-import { useState, memo, useCallback } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { useState, memo, useCallback, useEffect } from 'react';
+import { Menu, X, Zap, LogIn, LogOut } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import type { User } from '@supabase/supabase-js';
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    toast.success("Signed out successfully");
+    setIsMenuOpen(false);
+  };
+
+  const handleSignIn = () => {
+    navigate('/auth');
+    setIsMenuOpen(false);
+  };
+
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -20,7 +53,7 @@ const Header = memo(() => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             <button onClick={() => scrollToSection('home')} className="text-white hover:text-gray-300 transition-colors font-medium">
               Home
             </button>
@@ -36,6 +69,27 @@ const Header = memo(() => {
             <button onClick={() => scrollToSection('contact')} className="text-white hover:text-gray-300 transition-colors font-medium">
               Contact
             </button>
+            {user ? (
+              <Button
+                onClick={handleSignOut}
+                variant="ghost"
+                size="sm"
+                className="text-white hover:text-gray-300"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign Out
+              </Button>
+            ) : (
+              <Button
+                onClick={handleSignIn}
+                variant="ghost"
+                size="sm"
+                className="text-white hover:text-gray-300"
+              >
+                <LogIn className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -62,6 +116,23 @@ const Header = memo(() => {
               <button onClick={() => scrollToSection('contact')} className="text-white hover:text-gray-300 transition-colors font-medium text-left">
                 Contact
               </button>
+              {user ? (
+                <button
+                  onClick={handleSignOut}
+                  className="text-white hover:text-gray-300 transition-colors font-medium text-left flex items-center"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sign Out
+                </button>
+              ) : (
+                <button
+                  onClick={handleSignIn}
+                  className="text-white hover:text-gray-300 transition-colors font-medium text-left flex items-center"
+                >
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Sign In
+                </button>
+              )}
             </nav>
           </div>}
       </div>
