@@ -1,5 +1,6 @@
 import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp, Power, Settings, AlertTriangle } from 'lucide-react';
 import { memo, useEffect, useState, useRef } from 'react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const Services = memo(() => {
   // Force rebuild to clear cache
@@ -130,11 +131,18 @@ const Services = memo(() => {
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {services.map((service, index) => (
-                  <div 
-                    key={index}
-                    className="group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-xl p-4 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1"
-                  >
+                {services.map((service, index) => {
+                  const ServiceCard = () => {
+                    const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+                    return (
+                      <div 
+                        ref={elementRef as React.RefObject<HTMLDivElement>}
+                        key={index}
+                        className={`group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-xl p-4 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1 ${
+                          isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'
+                        }`}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
                     <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
                       <service.icon className="h-6 w-6 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
                     </div>
@@ -144,9 +152,12 @@ const Services = memo(() => {
                     <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                       {service.description}
                     </p>
-                    <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#3c2a39] to-transparent transition-all duration-500"></div>
-                  </div>
-                ))}
+                        <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#3c2a39] to-transparent transition-all duration-500"></div>
+                      </div>
+                    );
+                  };
+                  return <ServiceCard key={index} />;
+                })}
               </div>
             </div>
           </div>

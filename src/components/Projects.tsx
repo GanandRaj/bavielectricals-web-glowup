@@ -1,6 +1,6 @@
-
 import { ExternalLink } from 'lucide-react';
 import { memo, useState } from 'react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const Projects = memo(() => {
   const projects = [
@@ -63,12 +63,21 @@ const Projects = memo(() => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div 
-              key={project.id}
-              className="group bg-card/90 backdrop-blur-sm rounded-xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-3 hover:rotate-1 cursor-pointer"
-              style={{ transition: 'var(--transition-smooth)' }}
-            >
+          {projects.map((project, index) => {
+            const ProjectCard = () => {
+              const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+              return (
+                <div 
+                  ref={elementRef as React.RefObject<HTMLDivElement>}
+                  key={project.id}
+                  className={`group bg-card/90 backdrop-blur-sm rounded-xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-3 hover:rotate-1 cursor-pointer ${
+                    isVisible ? 'animate-fade-in animate-scale-in opacity-100' : 'opacity-0'
+                  }`}
+                  style={{ 
+                    transition: 'var(--transition-smooth)',
+                    animationDelay: `${index * 150}ms`
+                  }}
+                >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -95,10 +104,13 @@ const Projects = memo(() => {
                   View on Maps
                   <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
                 </a>
-                <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-primary to-transparent transition-all duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-primary to-transparent transition-all duration-500"></div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          };
+          return <ProjectCard key={project.id} />;
+        })}
         </div>
       </div>
     </section>

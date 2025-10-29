@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { cn } from '@/lib/utils';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 // Import brand logos
 import vguardLogo from '@/assets/brands/v-guard-logo.png';
@@ -17,6 +18,8 @@ import schneiderLogo from '@/assets/brands/schneider-logo.png';
 import rrKabelLogo from '@/assets/brands/rr-kabel-logo.png';
 
 const Brands = memo(() => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   const brands = [
     { name: 'V-Guard', logo: vguardLogo },
     { name: 'Havells', logo: havellsLogo },
@@ -41,7 +44,12 @@ const Brands = memo(() => {
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden border-t border-b border-gray-200">
+    <section 
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className={`py-20 bg-white relative overflow-hidden border-t border-b border-gray-200 transition-all duration-700 ${
+        isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-['Comic_Neue']">
