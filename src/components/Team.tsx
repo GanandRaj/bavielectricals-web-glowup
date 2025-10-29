@@ -1,11 +1,11 @@
-
 import { Mail, Phone } from 'lucide-react';
+import ceoImage from '@/assets/ceo-master-electrician.jpg';
 
 const Team = () => {
   const ceo = {
     name: "Amalodh Bavi",
     position: "CEO & Master Electrician",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    image: ceoImage,
     message: "Hard work and team effort - that's what makes Amalodhbhavi Electricals successful. Our commitment to excellence and dedication to our craft has built the foundation of trust with our clients. Together, we illuminate every project with precision and passion."
   };
 
