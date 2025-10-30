@@ -31,6 +31,9 @@ const About = lazy(() =>
 const Contact = lazy(() => 
   import('@/components/Contact').then(module => ({ default: module.default }))
 );
+const Testimonials = lazy(() => 
+  import('@/components/Testimonials').then(module => ({ default: module.default }))
+);
 const TeamConnect = lazy(() => 
   import('@/components/TeamConnect').then(module => ({ default: module.default }))
 );
@@ -60,6 +63,9 @@ const Index = memo(() => {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <Contact />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <Testimonials />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <TeamConnect />
