@@ -184,4 +184,49 @@ html {
 .animate-card-lift-3 {
   animation: cardLift 6s ease-in-out 4s infinite;
 }
+
+/* Creative Hero Title Word Art */
+.hero-title {
+  background: linear-gradient(135deg, 
+    #1e293b 0%,
+    #3b82f6 25%,
+    #8b5cf6 50%,
+    #ec4899 75%,
+    #1e293b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.3),
+    4px 4px 8px rgba(59, 130, 246, 0.2),
+    6px 6px 12px rgba(139, 92, 246, 0.2);
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.hero-title::before {
+  content: 'Amalodbhavi Electricals';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(15px);
+  opacity: 0.5;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
 }
