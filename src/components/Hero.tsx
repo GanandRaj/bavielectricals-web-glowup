@@ -55,7 +55,7 @@ const Hero = memo(() => {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 animate-fade-in hero-title">
+          <h1 className="text-5xl md:text-7xl font-black mb-8 animate-fade-in hero-title-simple">
             Amalodbhavi Electricals
           </h1>
           <p className="text-xl md:text-2xl mb-12 text-gray-900 max-w-5xl mx-auto leading-relaxed font-bold transform translate-y-2 animate-fade-in delay-300 drop-shadow-lg">
