@@ -153,12 +153,35 @@ html {
   }
   
   /* Hero background zoom animation */
-  @keyframes zoomIn {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.1);
-    }
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
   }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes cardLift {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.animate-card-lift-1 {
+  animation: cardLift 6s ease-in-out infinite;
+}
+
+.animate-card-lift-2 {
+  animation: cardLift 6s ease-in-out 2s infinite;
+}
+
+.animate-card-lift-3 {
+  animation: cardLift 6s ease-in-out 4s infinite;
+}
 }

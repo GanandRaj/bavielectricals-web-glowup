@@ -56,7 +56,7 @@ const Hero = memo(() => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text drop-shadow-2xl transform perspective-1000 animate-fade-in">Amalodbhavi Electricals</h1>
-          <p className="text-xl md:text-2xl mb-12 text-gray-700 max-w-5xl mx-auto leading-relaxed font-medium transform translate-y-2 animate-fade-in delay-300">
+          <p className="text-xl md:text-2xl mb-12 text-gray-900 max-w-5xl mx-auto leading-relaxed font-bold transform translate-y-2 animate-fade-in delay-300 drop-shadow-lg">
             Professional electrical services for residential, commercial, and industrial needs. 
             Licensed, insured, and committed to excellence in every project we undertake.
           </p>
@@ -71,25 +71,25 @@ const Hero = memo(() => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-in delay-700">
-            <div className="group bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
-                <Phone className="h-8 w-8 text-white" />
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-1">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Phone className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900">24/7 Emergency Service</h3>
               <p className="text-gray-600 leading-relaxed">Available when you need us most</p>
             </div>
             
-            <div className="group bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-              <div className="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
-                <Mail className="h-8 w-8 text-white" />
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-2">
+              <div className="bg-gradient-to-br from-green-500 to-green-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Mail className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900">Licensed & Insured</h3>
               <p className="text-gray-600 leading-relaxed">Professional and reliable service</p>
             </div>
             
-            <div className="group bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-              <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
-                <MapPin className="h-8 w-8 text-white" />
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-3">
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <MapPin className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900">Local Expertise</h3>
               <p className="text-gray-600 leading-relaxed">Serving the community with pride</p>
