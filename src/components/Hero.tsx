@@ -45,8 +45,8 @@ const Hero = memo(() => {
             }}
           />
         ))}
-        {/* Blur overlay */}
-        <div className="absolute inset-0 backdrop-blur-md bg-white/40"></div>
+        {/* Lighter blur overlay for better image visibility */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-b from-white/20 via-white/30 to-white/40"></div>
       </div>
       
       {/* Decorative Elements */}
