@@ -6,8 +6,20 @@ import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 const Testimonials = () => {
   const { elementRef, isVisible } = useScrollAnimation();
 
-  // Replace this URL with your actual Google Business review URL
-  const googleReviewUrl = "https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review";
+  // To get your Google Business review URL:
+  // 1. Go to your Google Business Profile
+  // 2. Click "Get more reviews"
+  // 3. Copy the short URL (looks like: https://g.page/r/XXXXX/review)
+  // 4. Replace the URL below with your actual review link
+  const googleReviewUrl = "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID";
+  
+  const handleReviewClick = () => {
+    // Opens in new tab to avoid iframe blocking issues
+    const newWindow = window.open(googleReviewUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow) {
+      alert('Please allow popups to leave a review on Google.');
+    }
+  };
 
   const testimonials = [
     {
@@ -53,7 +65,7 @@ const Testimonials = () => {
           </p>
           <Button
             size="lg"
-            onClick={() => window.open(googleReviewUrl, '_blank')}
+            onClick={handleReviewClick}
             className="gap-2"
           >
             Leave a Review on Google
