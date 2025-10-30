@@ -1,6 +1,25 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState, useEffect } from 'react';
 const Hero = memo(() => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const backgroundImages = [
+    '/hero-backgrounds/electrical-panel.jpg',
+    '/hero-backgrounds/electrical-wiring.jpg',
+    '/hero-backgrounds/lighting-installation.jpg',
+    '/hero-backgrounds/electrical-work.jpg'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   const scrollToContact = useCallback(() => {
     const element = document.getElementById('contact');
     if (element) {
@@ -9,9 +28,28 @@ const Hero = memo(() => {
       });
     }
   }, []);
-  return <section id="home" className="relative bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 to-purple-50/30"></div>
+  return <section id="home" className="relative text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
+      {/* Animated Background Images */}
+      <div className="absolute inset-0">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={image}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: index === currentImageIndex ? 'zoomIn 3s ease-out' : 'none',
+            }}
+          />
+        ))}
+        {/* Blur overlay */}
+        <div className="absolute inset-0 backdrop-blur-md bg-white/40"></div>
+      </div>
+      
+      {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
       

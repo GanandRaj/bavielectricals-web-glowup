@@ -151,4 +151,14 @@ html {
     backface-visibility: hidden;
     transform: translateZ(0);
   }
+  
+  /* Hero background zoom animation */
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
 }
