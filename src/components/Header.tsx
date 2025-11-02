@@ -59,13 +59,13 @@ const Header = memo(() => {
       isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center py-2">
+        <div className="flex justify-between items-center py-3">
           <div className="flex items-center">
-            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-12 w-auto" />
+            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-16 md:h-20 w-auto" />
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex space-x-8 items-center absolute left-1/2 transform -translate-x-1/2">
             <button onClick={() => scrollToSection('home')} className="text-gray-900 hover:text-gray-700 transition-colors font-medium">
               Home
             </button>
