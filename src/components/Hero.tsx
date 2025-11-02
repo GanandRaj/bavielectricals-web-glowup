@@ -28,7 +28,7 @@ const Hero = memo(() => {
       });
     }
   }, []);
-  return <section id="home" className="relative text-gray-900 py-24 mt-16 min-h-screen flex items-center overflow-hidden">
+  return <section id="home" className="relative text-gray-900 pt-32 pb-24 min-h-screen flex items-center overflow-hidden">
       {/* Animated Background Images */}
       <div className="absolute inset-0">
         {backgroundImages.map((image, index) => (
