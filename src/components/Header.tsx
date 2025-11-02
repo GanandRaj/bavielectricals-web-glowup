@@ -59,9 +59,9 @@ const Header = memo(() => {
       isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center py-2">
+        <div className="flex justify-between items-center py-1">
           <div className="flex items-center">
-            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-16 md:h-20 w-auto" />
+            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-14 md:h-16 w-auto" />
           </div>
           
           {/* Desktop Navigation */}
