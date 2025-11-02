@@ -59,7 +59,7 @@ const Header = memo(() => {
       isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center py-3">
+        <div className="flex justify-between items-center py-2">
           <div className="flex items-center">
             <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-16 md:h-20 w-auto" />
           </div>
@@ -81,6 +81,10 @@ const Header = memo(() => {
             <button onClick={() => scrollToSection('contact')} className="text-gray-900 hover:text-gray-700 transition-colors font-medium">
               Contact
             </button>
+          </nav>
+
+          {/* Auth buttons on the right */}
+          <div className="hidden md:flex items-center">
             {user ? (
               <Button
                 onClick={handleSignOut}
@@ -102,7 +106,7 @@ const Header = memo(() => {
                 Sign In
               </Button>
             )}
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden text-gray-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
