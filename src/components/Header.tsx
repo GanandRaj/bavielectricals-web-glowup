@@ -1,10 +1,11 @@
 import { useState, memo, useCallback, useEffect } from 'react';
-import { Menu, X, Zap, LogIn, LogOut } from 'lucide-react';
+import { Menu, X, LogIn, LogOut } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import type { User } from '@supabase/supabase-js';
+import aeLogo from '@/assets/ae-logo.png';
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -59,9 +60,8 @@ const Header = memo(() => {
     }`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center py-2">
-          <div className="flex items-center space-x-2">
-            <Zap className="h-6 w-6 text-amber-600" />
-            <span className="text-base md:text-lg font-bold text-gray-900">Amalodbhavi Electricals</span>
+          <div className="flex items-center">
+            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-12 w-auto" />
           </div>
           
           {/* Desktop Navigation */}
