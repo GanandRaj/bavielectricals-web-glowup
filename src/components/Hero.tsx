@@ -4,10 +4,10 @@ const Hero = memo(() => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const backgroundImages = [
-    '/hero-backgrounds/electrical-panel.jpg',
-    '/hero-backgrounds/electrical-wiring.jpg',
-    '/hero-backgrounds/lighting-installation.jpg',
-    '/hero-backgrounds/electrical-work.jpg'
+    '/hero-backgrounds/electrician-service-1.jpg',
+    '/hero-backgrounds/electrician-service-2.jpg',
+    '/hero-backgrounds/electrician-service-3.jpg',
+    '/hero-backgrounds/electrician-service-4.jpg'
   ];
 
   useEffect(() => {

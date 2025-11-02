@@ -59,9 +59,9 @@ const Header = memo(() => {
     }`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-2">
-            <Zap className="h-8 w-8 text-gray-900" />
-            <span className="text-xl font-bold text-gray-900">Amalodbhavi Electricals</span>
+          <div className="flex items-center space-x-3">
+            <Zap className="h-10 w-10 text-amber-600" />
+            <span className="text-3xl md:text-4xl font-asimovian text-gray-900 tracking-wide drop-shadow-lg">Amalodbhavi Electricals</span>
           </div>
           
           {/* Desktop Navigation */}
