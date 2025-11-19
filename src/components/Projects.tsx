@@ -1,5 +1,5 @@
-import { ExternalLink } from 'lucide-react';
-import { memo, useState } from 'react';
+import { ExternalLink, MapPin } from 'lucide-react';
+import { memo } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const Projects = memo(() => {
@@ -49,7 +49,7 @@ const Projects = memo(() => {
   ];
 
   return (
-    <section id="projects" className="py-16 bg-gradient-to-br from-background to-muted/30">
+    <section id="projects" className="py-16 bg-gradient-to-br from-background via-background to-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-['Fredoka'] font-bold text-foreground mb-4">
@@ -62,7 +62,7 @@ const Projects = memo(() => {
           <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {projects.map((project, index) => {
             const ProjectCard = () => {
               const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -70,47 +70,63 @@ const Projects = memo(() => {
                 <div 
                   ref={elementRef as React.RefObject<HTMLDivElement>}
                   key={project.id}
-                  className={`group bg-card/90 backdrop-blur-sm rounded-xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-3 hover:rotate-1 cursor-pointer ${
-                    isVisible ? 'animate-fade-in animate-scale-in opacity-100' : 'opacity-0'
+                  className={`relative rounded-3xl border border-border/40 overflow-hidden transition-all duration-500 ${
+                    isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'
                   }`}
                   style={{ 
-                    transition: 'var(--transition-smooth)',
-                    animationDelay: `${index * 150}ms`
+                    animationDelay: `${index * 100}ms`,
+                    background: 'radial-gradient(circle at 0% 0%, hsl(var(--primary) / 0.15), transparent 50%), radial-gradient(circle at 100% 100%, hsl(var(--accent) / 0.12), transparent 60%), hsl(var(--card))'
                   }}
                 >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.buildingName}
-                  className={`w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 ${project.id === 2 ? 'object-top' : ''}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-              <div className="p-6 relative">
-                <h3 className="text-xl font-['Fredoka'] font-bold text-card-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {project.buildingName}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed group-hover:text-card-foreground/80 transition-colors duration-300">
-                  {project.address}
-                </p>
-                <a 
-                  href={project.mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors duration-300 group-hover:translate-x-1"
-                >
-                  View on Maps
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                </a>
-                  <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-primary to-transparent transition-all duration-500"></div>
+                  {/* Top glow line */}
+                  <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+                  
+                  {/* Gradient ring */}
+                  <div className="absolute w-40 h-40 -left-10 -top-10 bg-primary/30 rounded-full blur-3xl opacity-50 pointer-events-none" />
+                  
+                  <div className="relative p-6 grid grid-cols-[auto_1fr_auto] gap-5 items-start">
+                    {/* Icon */}
+                    <div className="flex-shrink-0 rounded-full p-2.5 bg-gradient-to-br from-card/50 to-card border border-primary/20 shadow-lg">
+                      <MapPin className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                    </div>
+                    
+                    {/* Text Content */}
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-semibold text-foreground mb-1.5 tracking-tight">
+                        {project.buildingName}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {project.address}
+                      </p>
+                    </div>
+                    
+                    {/* Action Button */}
+                    <a
+                      href={project.mapsLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-medium bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 text-foreground hover:border-primary/50 hover:bg-primary/15 transition-all duration-300 shadow-sm"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
+                      View
+                    </a>
+                  </div>
+                  
+                  {/* Progress Bar */}
+                  <div className="relative mx-6 mb-5 h-1.5 rounded-full bg-card/80 border border-card overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-accent/30 opacity-50" />
+                    <div 
+                      className="h-full rounded-full bg-gradient-to-r from-primary via-primary/80 to-accent shadow-[0_0_12px_rgba(var(--primary),0.4)] relative overflow-hidden"
+                      style={{ width: `${Math.min(85 + index * 3, 98)}%` }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          };
-          return <ProjectCard key={project.id} />;
-        })}
+              );
+            };
+            return <ProjectCard key={project.id} />;
+          })}
         </div>
       </div>
     </section>
