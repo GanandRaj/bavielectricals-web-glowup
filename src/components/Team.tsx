@@ -39,38 +39,46 @@ const Team: React.FC = () => {
   return (
     <section
       id="team"
-      className="relative flex items-center justify-center bg-gradient-to-b from-background to-muted/20 py-24 px-4"
+      className="relative flex items-center justify-center bg-gradient-to-b from-background to-muted/20 py-24 px-4 overflow-hidden"
     >
-      <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
-        {/* LEFT ORBIT (clockwise) */}
-        <div className="hidden sm:flex flex-1 justify-center">
-          <div className="relative w-72 h-72 lg:w-80 lg:h-80 team-orbit-left">
-            {leftMembers.map((member) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: member.delay, duration: 0.6, ease: "easeOut" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{
-                  transform: `rotate(${member.angle}deg) translateX(135px) rotate(${
-                    -member.angle
-                  }deg)`,
-                }}
-              >
-                <div className="group relative w-24 h-28 sm:w-28 sm:h-32 rounded-3xl overflow-hidden shadow-xl bg-card/60 backdrop-blur-lg border border-border/60">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Name on hover */}
-                  <div className="pointer-events-none absolute inset-x-2 bottom-2 rounded-lg bg-white text-black text-xs font-semibold text-center px-2 py-1 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
-                    {member.name}
+      <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+        {/* LEFT SIDE - Semicircle from top to bottom (clockwise) */}
+        <div className="hidden lg:flex flex-1 justify-center items-center">
+          <div className="relative w-[280px] h-[600px]">
+            {leftMembers.map((member, index) => {
+              // Calculate position along semicircle (left side, top to bottom)
+              const angle = (index / (leftMembers.length - 1)) * 180; // 0 to 180 degrees
+              const radius = 280;
+              const x = Math.cos((angle - 90) * Math.PI / 180) * radius;
+              const y = Math.sin((angle - 90) * Math.PI / 180) * radius;
+              
+              return (
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: member.delay, duration: 0.6, ease: "easeOut" }}
+                  className="absolute"
+                  style={{
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  <div className="group relative w-20 h-24 rounded-2xl overflow-hidden shadow-xl bg-card/60 backdrop-blur-lg border border-border/60 team-orbit-left">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Name on hover */}
+                    <div className="pointer-events-none absolute inset-x-1 bottom-1 rounded-md bg-white text-black text-[10px] font-semibold text-center px-1 py-0.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
+                      {member.name}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -104,35 +112,43 @@ const Team: React.FC = () => {
           </button>
         </motion.div>
 
-        {/* RIGHT ORBIT (anticlockwise) */}
-        <div className="hidden sm:flex flex-1 justify-center">
-          <div className="relative w-72 h-72 lg:w-80 lg:h-80 team-orbit-right">
-            {rightMembers.map((member) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: member.delay, duration: 0.6, ease: "easeOut" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{
-                  transform: `rotate(${member.angle}deg) translateX(135px) rotate(${
-                    -member.angle
-                  }deg)`,
-                }}
-              >
-                <div className="group relative w-24 h-28 sm:w-28 sm:h-32 rounded-3xl overflow-hidden shadow-xl bg-card/60 backdrop-blur-lg border border-border/60">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Name on hover */}
-                  <div className="pointer-events-none absolute inset-x-2 bottom-2 rounded-lg bg-white text-black text-xs font-semibold text-center px-2 py-1 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
-                    {member.name}
+        {/* RIGHT SIDE - Semicircle from top to bottom (anticlockwise) */}
+        <div className="hidden lg:flex flex-1 justify-center items-center">
+          <div className="relative w-[280px] h-[600px]">
+            {rightMembers.map((member, index) => {
+              // Calculate position along semicircle (right side, top to bottom)
+              const angle = (index / (rightMembers.length - 1)) * 180; // 0 to 180 degrees
+              const radius = 280;
+              const x = Math.cos((90 - angle) * Math.PI / 180) * radius;
+              const y = Math.sin((90 - angle) * Math.PI / 180) * radius;
+              
+              return (
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: member.delay, duration: 0.6, ease: "easeOut" }}
+                  className="absolute"
+                  style={{
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  <div className="group relative w-20 h-24 rounded-2xl overflow-hidden shadow-xl bg-card/60 backdrop-blur-lg border border-border/60 team-orbit-right">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Name on hover */}
+                    <div className="pointer-events-none absolute inset-x-1 bottom-1 rounded-md bg-white text-black text-[10px] font-semibold text-center px-1 py-0.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
+                      {member.name}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
