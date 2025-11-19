@@ -117,6 +117,43 @@ body {
   }
 }
 
+/* === Team section orbit animation === */
+@keyframes orbit-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-anticlockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Left group: clockwise */
+.team-orbit-left {
+  animation: orbit-clockwise 32s linear infinite;
+}
+
+/* Right group: anticlockwise */
+.team-orbit-right {
+  animation: orbit-anticlockwise 32s linear infinite;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .team-orbit-left,
+  .team-orbit-right {
+    animation: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
