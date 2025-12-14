@@ -1,8 +1,20 @@
-import { ExternalLink } from 'lucide-react';
-import { memo, useState } from 'react';
+import { ExternalLink, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { memo, useState, useCallback, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 
 const Projects = memo(() => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   const projects = [
     {
       id: 1,
@@ -48,73 +60,176 @@ const Projects = memo(() => {
     }
   ];
 
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  const scrollPrev = useCallback(() => {
+    api?.scrollPrev();
+  }, [api]);
+
+  const scrollNext = useCallback(() => {
+    api?.scrollNext();
+  }, [api]);
+
+  const scrollTo = useCallback((index: number) => {
+    api?.scrollTo(index);
+  }, [api]);
+
   return (
-    <section id="projects" className="py-16 bg-gradient-to-br from-background to-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-['Fredoka'] font-bold text-foreground mb-4">
-            Our Recent Projects
+    <section id="projects" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <div 
+        ref={elementRef as React.RefObject<HTMLDivElement>}
+        className={cn(
+          "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+          isVisible ? 'animate-fade-in' : 'opacity-0'
+        )}
+      >
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+            Our Portfolio
+          </span>
+          <h2 className="text-3xl md:text-5xl font-['Fredoka'] font-bold text-foreground mb-4">
+            Featured Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Take a look at some of our completed electrical projects. Each project showcases 
-            our commitment to quality, safety, and professional excellence.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Showcasing our commitment to excellence in electrical installations
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => {
-            const ProjectCard = () => {
-              const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
-              return (
-                <div 
-                  ref={elementRef as React.RefObject<HTMLDivElement>}
-                  key={project.id}
-                  className={`group bg-card/90 backdrop-blur-sm rounded-xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-3 hover:rotate-1 cursor-pointer ${
-                    isVisible ? 'animate-fade-in animate-scale-in opacity-100' : 'opacity-0'
-                  }`}
-                  style={{ 
-                    transition: 'var(--transition-smooth)',
-                    animationDelay: `${index * 150}ms`
-                  }}
+        {/* Carousel */}
+        <div className="relative">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4 md:-ml-6">
+              {projects.map((project, index) => (
+                <CarouselItem 
+                  key={project.id} 
+                  className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3"
                 >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.buildingName}
-                  className={`w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 ${project.id === 2 ? 'object-top' : ''}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-              <div className="p-6 relative">
-                <h3 className="text-xl font-['Fredoka'] font-bold text-card-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {project.buildingName}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed group-hover:text-card-foreground/80 transition-colors duration-300">
-                  {project.address}
-                </p>
-                <a 
-                  href={project.mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors duration-300 group-hover:translate-x-1"
-                >
-                  View on Maps
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                </a>
-                  <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-primary to-transparent transition-all duration-500"></div>
-                </div>
-              </div>
-            );
-          };
-          return <ProjectCard key={project.id} />;
-        })}
+                  <div 
+                    className={cn(
+                      "group relative bg-card rounded-2xl overflow-hidden shadow-lg border border-border/30",
+                      "hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500",
+                      "hover:-translate-y-2"
+                    )}
+                  >
+                    {/* Image Container */}
+                    <div className="relative h-64 overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.buildingName}
+                        className={cn(
+                          "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                          project.id === 2 ? 'object-top' : ''
+                        )}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {/* Overlay Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                      
+                      {/* Project Number Badge */}
+                      <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      {/* Content Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-xl font-['Fredoka'] font-bold text-white mb-2 group-hover:translate-x-1 transition-transform duration-300">
+                          {project.buildingName}
+                        </h3>
+                        <div className="flex items-center text-white/80 text-sm mb-4">
+                          <MapPin className="w-4 h-4 mr-1.5 flex-shrink-0" />
+                          <span className="truncate">{project.address}</span>
+                        </div>
+                        
+                        {/* View on Maps Link */}
+                        <a 
+                          href={project.mapsLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium hover:bg-white/20 transition-all duration-300 border border-white/20"
+                        >
+                          View Location
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
+            aria-label="Previous project"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Dots Indicator */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {Array.from({ length: count }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={cn(
+                "transition-all duration-300 rounded-full",
+                current === index 
+                  ? "w-8 h-2 bg-primary" 
+                  : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+              )}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-border/50">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{projects.length}+</div>
+            <div className="text-sm text-muted-foreground">Projects Completed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
+            <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
+            <div className="text-sm text-muted-foreground">Years Experience</div>
+          </div>
         </div>
       </div>
     </section>
   );
 });
+
+Projects.displayName = 'Projects';
 
 export default Projects;
