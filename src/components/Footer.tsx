@@ -1,62 +1,66 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+import aeLogo from '@/assets/ae-logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
-          {/* Company Info Column */}
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container-wide section-padding pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          {/* Company Info */}
           <div>
-            <h2 className="text-3xl font-bold mb-4">Amalodbhavi Electricals</h2>
-            <p className="text-gray-300 leading-relaxed">
-              We provide quality electrical solutions for homes and businesses. 
-              Our team delivers reliable service with professional expertise and care.
+            <img src={aeLogo} alt="Amalodbhavi Electricals" className="h-14 w-auto mb-4 brightness-0 invert" />
+            <p className="text-primary-foreground/70 leading-relaxed">
+              Professional electrical solutions for homes and businesses. 
+              Reliable service with expertise and care.
             </p>
           </div>
 
-          {/* Contact Info Column */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Headquaters</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-gray-400 flex-shrink-0 mt-1" />
-                <a 
-                  href="https://maps.app.goo.gl/igNqR2N9pcDcSdqc6" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <nav className="space-y-2">
+              {['Home', 'Services', 'Projects', 'Team', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
+                  className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
-                  D.No 3-14 Main Road<br/>Opposite CSB Bank, Ravipadu
-                </a>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <a 
-                  href="tel:+919989030669" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  +91 9989030669
-                </a>
-              </div>
+                  {item}
+                </button>
+              ))}
+            </nav>
+          </div>
 
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <a 
-                  href="mailto:amalodhbhavielectricals@gmail.com" 
-                  className="text-gray-300 hover:text-white transition-colors break-all"
-                >
-                  amalodhbhavielectricals@gmail.com
-                </a>
-              </div>
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Headquarters</h3>
+            <div className="space-y-3">
+              <a 
+                href="https://maps.app.goo.gl/igNqR2N9pcDcSdqc6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+              >
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <span>D.No 3-14 Main Road<br/>Opposite CSB Bank, Ravipadu</span>
+              </a>
+              
+              <a href="tel:+919989030669" className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                <Phone className="h-5 w-5 flex-shrink-0" />
+                +91 9989030669
+              </a>
+
+              <a href="mailto:amalodhbhavielectricals@gmail.com" className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors break-all">
+                <Mail className="h-5 w-5 flex-shrink-0" />
+                amalodhbhavielectricals@gmail.com
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            © Copyright © Amalodbhavi Electricals. All Rights Reserved
+        <div className="border-t border-primary-foreground/10 pt-8 text-center">
+          <p className="text-sm text-primary-foreground/50">
+            © {new Date().getFullYear()} Amalodbhavi Electricals. All Rights Reserved
           </p>
         </div>
       </div>
