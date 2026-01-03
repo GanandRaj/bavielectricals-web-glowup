@@ -1,179 +1,239 @@
-import { Zap, Home, Building, Wrench, Shield, Clock, ChevronUp, Power, Settings, AlertTriangle } from 'lucide-react';
-import { memo, useEffect, useState, useRef } from 'react';
+import { memo } from 'react';
+import { Home, Building, Wrench, Settings, Shield, AlertTriangle } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
-const Services = memo(() => {
-  // Force rebuild to clear cache
-  const [bannerVisible, setBannerVisible] = useState(true);
-  const sectionRef = useRef<HTMLElement>(null);
+interface Service {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  image: string;
+  color: string;
+  bgColor: string;
+}
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+const services: Service[] = [
+  {
+    icon: Home,
+    title: "Residential Electrical",
+    description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
+    image: "/hero-backgrounds/electrical-wiring.jpg",
+    color: "from-blue-500 to-blue-600",
+    bgColor: "bg-blue-500"
+  },
+  {
+    icon: Building,
+    title: "Commercial Electrical",
+    description: "Professional electrical solutions for businesses, offices, and commercial properties.",
+    image: "/hero-backgrounds/electrical-panel.jpg",
+    color: "from-green-500 to-green-600",
+    bgColor: "bg-green-500"
+  },
+  {
+    icon: Wrench,
+    title: "Electrical Repairs",
+    description: "Fast and reliable electrical repair services for all your electrical problems.",
+    image: "/hero-backgrounds/electrical-work.jpg",
+    color: "from-yellow-500 to-orange-500",
+    bgColor: "bg-yellow-500"
+  },
+  {
+    icon: Settings,
+    title: "Installation Services",
+    description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
+    image: "/hero-backgrounds/lighting-installation.jpg",
+    color: "from-purple-500 to-purple-600",
+    bgColor: "bg-purple-500"
+  },
+  {
+    icon: Shield,
+    title: "Safety Inspections",
+    description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
+    image: "/hero-backgrounds/electrician-service-1.jpg",
+    color: "from-red-500 to-red-600",
+    bgColor: "bg-red-500"
+  },
+  {
+    icon: AlertTriangle,
+    title: "Emergency Services",
+    description: "24/7 emergency electrical services for urgent electrical issues and outages.",
+    image: "/hero-backgrounds/electrician-service-2.jpg",
+    color: "from-indigo-500 to-indigo-600",
+    bgColor: "bg-indigo-500"
+  }
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-          // Delay the banner lift to let users see the banner content
-          setTimeout(() => {
-            setBannerVisible(false);
-          }, 3600); // 3.6s delay to read banner
-        } else if (entry.intersectionRatio < 0.1) {
-          // Reset when mostly leaving the section
-          setBannerVisible(true);
-        }
-      },
-      { 
-        threshold: [0, 0.1, 0.3, 0.5, 1],
-        rootMargin: '-10px 0px -10px 0px'
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const services = [
-    {
-      icon: Home,
-      title: "Residential Electrical",
-      description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-500/10",
-      hoverBg: "group-hover:bg-blue-500/20"
-    },
-    {
-      icon: Building,
-      title: "Commercial Electrical",
-      description: "Professional electrical solutions for businesses, offices, and commercial properties.",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-500/10",
-      hoverBg: "group-hover:bg-green-500/20"
-    },
-    {
-      icon: Wrench,
-      title: "Electrical Repairs",
-      description: "Fast and reliable electrical repair services for all your electrical problems.",
-      color: "from-yellow-500 to-orange-500",
-      bgColor: "bg-yellow-500/10",
-      hoverBg: "group-hover:bg-yellow-500/20"
-    },
-    {
-      icon: Settings,
-      title: "Installation Services",
-      description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-500/10",
-      hoverBg: "group-hover:bg-purple-500/20"
-    },
-    {
-      icon: Shield,
-      title: "Safety Inspections",
-      description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-500/10",
-      hoverBg: "group-hover:bg-red-500/20"
-    },
-    {
-      icon: AlertTriangle,
-      title: "Emergency Services",
-      description: "24/7 emergency electrical services for urgent electrical issues and outages.",
-      color: "from-indigo-500 to-indigo-600",
-      bgColor: "bg-indigo-500/10",
-      hoverBg: "group-hover:bg-indigo-500/20"
-    }
-  ];
+const ServiceCard = memo(({ service, index }: { service: Service; index: number }) => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const Icon = service.icon;
 
   return (
-    <>
-      <section ref={sectionRef} id="services" className="py-20 bg-muted/30 relative overflow-hidden min-h-screen">
-        {/* Static Banner */}
-        <div 
-          className={`absolute inset-0 z-10 flex items-center justify-center transition-transform duration-1000 ease-in-out ${
-            bannerVisible ? 'translate-y-0' : '-translate-y-full'
-          }`}
-          style={{
-            backgroundColor: '#D6A99D'
-          }}
-        >
-          <div className="flex flex-col items-center justify-center gap-6 px-8">
-            {/* Static Image */}
-            <div className="w-64 h-64 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/6e356e31-f9f6-463b-b6ca-4472f5dd4a83.png" 
-                alt="Our Services" 
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
+    <div
+      ref={elementRef as React.RefObject<HTMLDivElement>}
+      className={cn(
+        "group relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden cursor-pointer",
+        "transform transition-all duration-500",
+        "hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20",
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      )}
+      style={{ 
+        transitionDelay: `${index * 100}ms`,
+      }}
+    >
+      {/* Background Image - Hidden by default, shown on hover */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out scale-100 group-hover:scale-110"
+        style={{ backgroundImage: `url(${service.image})` }}
+      />
+      
+      {/* Gradient Overlay - Changes on hover */}
+      <div className={cn(
+        "absolute inset-0 transition-all duration-500",
+        "bg-gradient-to-br",
+        service.color,
+        "opacity-95 group-hover:opacity-20"
+      )} />
+      
+      {/* Dark overlay for text readability on hover */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
 
-            {/* Text Content */}
-            <div className="text-center">
-              <h2 className="text-6xl md:text-7xl font-['Comic Neue'] font-bold text-white mb-6 tracking-tight cursor-default">
-                Our Services
-              </h2>
+      {/* Content Container */}
+      <div className="relative h-full flex flex-col justify-between p-5 sm:p-6 md:p-8 z-10">
+        {/* Top Section - Icon */}
+        <div className={cn(
+          "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center",
+          "bg-white/20 backdrop-blur-sm",
+          "group-hover:bg-white group-hover:shadow-xl",
+          "transition-all duration-500 transform group-hover:scale-110"
+        )}>
+          <Icon className={cn(
+            "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white",
+            "group-hover:text-gray-900",
+            "transition-colors duration-500"
+          )} />
+        </div>
+
+        {/* Bottom Section - Text */}
+        <div className="transform transition-all duration-500 group-hover:translate-y-0">
+          <h3 className={cn(
+            "text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3",
+            "drop-shadow-lg group-hover:drop-shadow-2xl",
+            "transition-all duration-300"
+          )}>
+            {service.title}
+          </h3>
+          <p className={cn(
+            "text-white/90 text-sm sm:text-base leading-relaxed",
+            "line-clamp-2 sm:line-clamp-3",
+            "group-hover:text-white",
+            "transition-all duration-300"
+          )}>
+            {service.description}
+          </p>
+          
+          {/* Learn More - Appears on hover */}
+          <div className={cn(
+            "mt-3 sm:mt-4 flex items-center gap-2",
+            "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0",
+            "transition-all duration-500 delay-100"
+          )}>
+            <span className="text-white font-medium text-sm sm:text-base">Learn More</span>
+            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+              <svg 
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white transform group-hover:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Services Content */}
-        <div className="relative z-0">
-          <div className="pt-20 pb-10">
-            <div className="text-center mb-16">
-              <p className="text-2xl md:text-3xl font-['Fredoka'] font-medium text-foreground mb-4 max-w-4xl mx-auto leading-relaxed">
-                From simple repairs to complex installations, we provide comprehensive electrical services with the highest standards of safety and quality
-              </p>
-              <div className="w-32 h-1 bg-gradient-to-r from-[#3c2a39] to-[#3c2a39]/50 mx-auto rounded-full"></div>
-            </div>
-
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {services.map((service, index) => {
-                  const ServiceCard = () => {
-                    const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
-                    return (
-                      <div 
-                        ref={elementRef as React.RefObject<HTMLDivElement>}
-                        key={index}
-                        className={`group bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm rounded-xl p-4 border-2 border-border/50 hover:border-[#3c2a39]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3c2a39]/20 hover:-translate-y-2 cursor-pointer transform hover:rotate-1 ${
-                          isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'
-                        }`}
-                        style={{ animationDelay: `${index * 100}ms` }}
-                      >
-                    <div className={`${service.bgColor} ${service.hoverBg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shadow-lg`}>
-                      <service.icon className="h-6 w-6 text-foreground group-hover:text-[#3c2a39] transition-colors duration-300" />
-                    </div>
-                    <h3 className="text-xl font-['Fredoka'] font-bold text-foreground mb-4 group-hover:text-[#3c2a39] transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
-                      {service.description}
-                    </p>
-                        <div className="mt-4 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-[#3c2a39] to-transparent transition-all duration-500"></div>
-                      </div>
-                    );
-                  };
-                  return <ServiceCard key={index} />;
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 bg-primary hover:bg-primary/90 text-primary-foreground p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
-        aria-label="Scroll to top"
-      >
-        <ChevronUp className="h-5 w-5 group-hover:animate-bounce" />
-      </button>
-    </>
+      {/* Shimmer Effect on Hover */}
+      <div className={cn(
+        "absolute inset-0 opacity-0 group-hover:opacity-100",
+        "bg-gradient-to-r from-transparent via-white/10 to-transparent",
+        "transform -translate-x-full group-hover:translate-x-full",
+        "transition-all duration-1000 ease-out"
+      )} />
+    </div>
   );
 });
+
+ServiceCard.displayName = 'ServiceCard';
+
+const Services = memo(() => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  return (
+    <section id="services" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-background via-muted/30 to-background">
+      <div 
+        ref={elementRef as React.RefObject<HTMLDivElement>}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        {/* Section Header */}
+        <div className={cn(
+          "text-center mb-10 sm:mb-12 md:mb-16",
+          "transition-all duration-700",
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        )}>
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+            What We Offer
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+            Our Services
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
+            Professional electrical solutions tailored to your needs with quality and safety at the forefront
+          </p>
+        </div>
+
+        {/* Services Grid - Responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className={cn(
+          "text-center mt-10 sm:mt-12 md:mt-16",
+          "transition-all duration-700 delay-500",
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        )}>
+          <p className="text-muted-foreground mb-4 text-sm sm:text-base">
+            Need a service not listed? We've got you covered!
+          </p>
+          <button 
+            onClick={() => {
+              const contact = document.getElementById('contact');
+              contact?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className={cn(
+              "inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4",
+              "bg-primary text-primary-foreground rounded-xl",
+              "font-medium text-sm sm:text-base",
+              "hover:shadow-xl hover:shadow-primary/25 hover:scale-105",
+              "active:scale-95",
+              "transition-all duration-300"
+            )}
+          >
+            Contact Us Today
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+Services.displayName = 'Services';
 
 export default Services;

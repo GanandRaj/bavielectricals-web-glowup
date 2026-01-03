@@ -84,7 +84,7 @@ const Projects = memo(() => {
   }, [api]);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
       <div 
         ref={elementRef as React.RefObject<HTMLDivElement>}
         className={cn(
@@ -93,14 +93,14 @@ const Projects = memo(() => {
         )}
       >
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
             Our Portfolio
           </span>
-          <h2 className="text-3xl md:text-5xl font-['Fredoka'] font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Fredoka'] font-bold text-foreground mb-3 sm:mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
             Showcasing our commitment to excellence in electrical installations
           </p>
         </div>
@@ -176,25 +176,25 @@ const Projects = memo(() => {
             </CarouselContent>
           </Carousel>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Hidden on small screens, touch to scroll */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 lg:-translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
             aria-label="Previous project"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
+            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 lg:translate-x-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
             aria-label="Next project"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
           {Array.from({ length: count }).map((_, index) => (
             <button
               key={index}
@@ -202,7 +202,7 @@ const Projects = memo(() => {
               className={cn(
                 "transition-all duration-300 rounded-full",
                 current === index 
-                  ? "w-8 h-2 bg-primary" 
+                  ? "w-6 sm:w-8 h-2 bg-primary" 
                   : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               )}
               aria-label={`Go to slide ${index + 1}`}
@@ -211,18 +211,18 @@ const Projects = memo(() => {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-border/50">
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-border/50">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{projects.length}+</div>
-            <div className="text-sm text-muted-foreground">Projects Completed</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">{projects.length}+</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Projects Completed</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
-            <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">100%</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Client Satisfaction</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">15+</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
           </div>
         </div>
       </div>
