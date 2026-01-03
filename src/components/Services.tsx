@@ -1,7 +1,15 @@
-import { memo } from 'react';
-import { Home, Building, Wrench, Settings, Shield, AlertTriangle } from 'lucide-react';
+import { memo, useState } from 'react';
+import { Home, Building, Wrench, Settings, Shield, AlertTriangle, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { cn } from '@/lib/utils';
+
+// Import service images
+import residentialImg from '@/assets/services/residential-electrical.jpg';
+import commercialImg from '@/assets/services/commercial-electrical.jpg';
+import repairsImg from '@/assets/services/electrical-repairs.jpg';
+import installationImg from '@/assets/services/installation-services.jpg';
+import safetyImg from '@/assets/services/safety-inspections.jpg';
+import emergencyImg from '@/assets/services/emergency-services.jpg';
 
 interface Service {
   icon: React.ElementType;
@@ -9,7 +17,6 @@ interface Service {
   description: string;
   image: string;
   color: string;
-  bgColor: string;
 }
 
 const services: Service[] = [
@@ -17,158 +24,49 @@ const services: Service[] = [
     icon: Home,
     title: "Residential Electrical",
     description: "Complete electrical services for your home including wiring, outlets, lighting, and panel upgrades.",
-    image: "/hero-backgrounds/electrical-wiring.jpg",
-    color: "from-blue-500 to-blue-600",
-    bgColor: "bg-blue-500"
+    image: residentialImg,
+    color: "from-blue-500 to-blue-600"
   },
   {
     icon: Building,
     title: "Commercial Electrical",
     description: "Professional electrical solutions for businesses, offices, and commercial properties.",
-    image: "/hero-backgrounds/electrical-panel.jpg",
-    color: "from-green-500 to-green-600",
-    bgColor: "bg-green-500"
+    image: commercialImg,
+    color: "from-green-500 to-green-600"
   },
   {
     icon: Wrench,
     title: "Electrical Repairs",
     description: "Fast and reliable electrical repair services for all your electrical problems.",
-    image: "/hero-backgrounds/electrical-work.jpg",
-    color: "from-yellow-500 to-orange-500",
-    bgColor: "bg-yellow-500"
+    image: repairsImg,
+    color: "from-yellow-500 to-orange-500"
   },
   {
     icon: Settings,
     title: "Installation Services",
     description: "Expert installation of electrical fixtures, ceiling fans, outlets, and switches.",
-    image: "/hero-backgrounds/lighting-installation.jpg",
-    color: "from-purple-500 to-purple-600",
-    bgColor: "bg-purple-500"
+    image: installationImg,
+    color: "from-purple-500 to-purple-600"
   },
   {
     icon: Shield,
     title: "Safety Inspections",
     description: "Comprehensive electrical safety inspections to ensure your property is up to code.",
-    image: "/hero-backgrounds/electrician-service-1.jpg",
-    color: "from-red-500 to-red-600",
-    bgColor: "bg-red-500"
+    image: safetyImg,
+    color: "from-red-500 to-red-600"
   },
   {
     icon: AlertTriangle,
     title: "Emergency Services",
     description: "24/7 emergency electrical services for urgent electrical issues and outages.",
-    image: "/hero-backgrounds/electrician-service-2.jpg",
-    color: "from-indigo-500 to-indigo-600",
-    bgColor: "bg-indigo-500"
+    image: emergencyImg,
+    color: "from-indigo-500 to-indigo-600"
   }
 ];
 
-const ServiceCard = memo(({ service, index }: { service: Service; index: number }) => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
-  const Icon = service.icon;
-
-  return (
-    <div
-      ref={elementRef as React.RefObject<HTMLDivElement>}
-      className={cn(
-        "group relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden cursor-pointer",
-        "transform transition-all duration-500",
-        "hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20",
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      )}
-      style={{ 
-        transitionDelay: `${index * 100}ms`,
-      }}
-    >
-      {/* Background Image - Hidden by default, shown on hover */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out scale-100 group-hover:scale-110"
-        style={{ backgroundImage: `url(${service.image})` }}
-      />
-      
-      {/* Gradient Overlay - Changes on hover */}
-      <div className={cn(
-        "absolute inset-0 transition-all duration-500",
-        "bg-gradient-to-br",
-        service.color,
-        "opacity-95 group-hover:opacity-20"
-      )} />
-      
-      {/* Dark overlay for text readability on hover */}
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
-
-      {/* Content Container */}
-      <div className="relative h-full flex flex-col justify-between p-5 sm:p-6 md:p-8 z-10">
-        {/* Top Section - Icon */}
-        <div className={cn(
-          "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center",
-          "bg-white/20 backdrop-blur-sm",
-          "group-hover:bg-white group-hover:shadow-xl",
-          "transition-all duration-500 transform group-hover:scale-110"
-        )}>
-          <Icon className={cn(
-            "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white",
-            "group-hover:text-gray-900",
-            "transition-colors duration-500"
-          )} />
-        </div>
-
-        {/* Bottom Section - Text */}
-        <div className="transform transition-all duration-500 group-hover:translate-y-0">
-          <h3 className={cn(
-            "text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3",
-            "drop-shadow-lg group-hover:drop-shadow-2xl",
-            "transition-all duration-300"
-          )}>
-            {service.title}
-          </h3>
-          <p className={cn(
-            "text-white/90 text-sm sm:text-base leading-relaxed",
-            "line-clamp-2 sm:line-clamp-3",
-            "group-hover:text-white",
-            "transition-all duration-300"
-          )}>
-            {service.description}
-          </p>
-          
-          {/* Learn More - Appears on hover */}
-          <div className={cn(
-            "mt-3 sm:mt-4 flex items-center gap-2",
-            "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0",
-            "transition-all duration-500 delay-100"
-          )}>
-            <span className="text-white font-medium text-sm sm:text-base">Learn More</span>
-            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
-              <svg 
-                className="w-3 h-3 sm:w-4 sm:h-4 text-white transform group-hover:translate-x-1 transition-transform duration-300" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Shimmer Effect on Hover */}
-      <div className={cn(
-        "absolute inset-0 opacity-0 group-hover:opacity-100",
-        "bg-gradient-to-r from-transparent via-white/10 to-transparent",
-        "transform -translate-x-full group-hover:translate-x-full",
-        "transition-all duration-1000 ease-out"
-      )} />
-    </div>
-  );
-});
-
-ServiceCard.displayName = 'ServiceCard';
-
 const Services = memo(() => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section id="services" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-background via-muted/30 to-background">
@@ -193,11 +91,143 @@ const Services = memo(() => {
           </p>
         </div>
 
-        {/* Services Grid - Responsive */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
+        {/* Services Layout - Left list, Right image */}
+        <div className={cn(
+          "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12",
+          "transition-all duration-700 delay-200",
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        )}>
+          {/* Left - Service Cards List */}
+          <div className="flex flex-col gap-3 sm:gap-4">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              const isActive = activeIndex === index;
+              
+              return (
+                <div
+                  key={service.title}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  className={cn(
+                    "group relative flex items-center gap-4 p-4 sm:p-5 rounded-2xl cursor-pointer",
+                    "border-2 transition-all duration-500 ease-out",
+                    isActive 
+                      ? "bg-primary/5 border-primary shadow-lg shadow-primary/10 scale-[1.02]" 
+                      : "bg-card border-transparent hover:border-primary/30 hover:bg-muted/50"
+                  )}
+                >
+                  {/* Icon */}
+                  <div className={cn(
+                    "flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center",
+                    "transition-all duration-500",
+                    isActive 
+                      ? "bg-gradient-to-br " + service.color + " shadow-lg" 
+                      : "bg-muted group-hover:bg-primary/10"
+                  )}>
+                    <Icon className={cn(
+                      "w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-500",
+                      isActive ? "text-white" : "text-foreground group-hover:text-primary"
+                    )} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className={cn(
+                      "text-base sm:text-lg font-semibold mb-1 transition-colors duration-300",
+                      isActive ? "text-primary" : "text-foreground"
+                    )}>
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow indicator */}
+                  <div className={cn(
+                    "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center",
+                    "transition-all duration-500",
+                    isActive 
+                      ? "bg-primary text-primary-foreground translate-x-1" 
+                      : "bg-muted text-muted-foreground opacity-0 group-hover:opacity-100"
+                  )}>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+
+                  {/* Active indicator bar */}
+                  <div className={cn(
+                    "absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-r-full transition-all duration-500",
+                    isActive ? "h-2/3 bg-primary" : "h-0 bg-transparent"
+                  )} />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right - Service Image */}
+          <div className="relative h-[300px] sm:h-[400px] lg:h-full lg:min-h-[500px] rounded-3xl overflow-hidden">
+            {/* Background gradient glow */}
+            <div className={cn(
+              "absolute -inset-4 rounded-3xl blur-2xl opacity-30 transition-all duration-700",
+              "bg-gradient-to-br",
+              services[activeIndex].color
+            )} />
+            
+            {/* Image container */}
+            <div className="relative h-full rounded-3xl overflow-hidden border border-border/50 shadow-2xl">
+              {services.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={cn(
+                    "absolute inset-0 transition-all duration-700 ease-out",
+                    activeIndex === index 
+                      ? "opacity-100 scale-100" 
+                      : "opacity-0 scale-105"
+                  )}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  
+                  {/* Content overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <div className={cn(
+                      "inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3",
+                      "bg-white/20 backdrop-blur-sm border border-white/30"
+                    )}>
+                      <service.icon className="w-4 h-4 text-white" />
+                      <span className="text-sm font-medium text-white">{service.title}</span>
+                    </div>
+                    <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-md">
+                      {service.description}
+                    </p>
+                    
+                    {/* Learn more button */}
+                    <button 
+                      onClick={() => {
+                        const contact = document.getElementById('contact');
+                        contact?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className={cn(
+                        "mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl",
+                        "bg-white/10 backdrop-blur-sm border border-white/30",
+                        "text-white font-medium text-sm",
+                        "hover:bg-white/20 transition-all duration-300",
+                        "group"
+                      )}
+                    >
+                      Get Quote
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Bottom CTA */}
