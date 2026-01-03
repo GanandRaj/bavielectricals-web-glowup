@@ -46,12 +46,13 @@ const Brands = memo(() => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`py-20 bg-white relative overflow-hidden border-t border-b border-gray-200 transition-all duration-700 ${
-        isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'
-      }`}
+      className="py-20 bg-white relative overflow-hidden border-t border-b border-gray-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className={cn(
+          "text-center mb-16 opacity-0",
+          isVisible && 'animate-fade-down'
+        )}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-['Comic_Neue']">
             Trusted Brand Partners
           </h2>
@@ -62,7 +63,10 @@ const Brands = memo(() => {
         </div>
 
         {/* Infinite scroll container */}
-        <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 overflow-hidden">
+        <div className={cn(
+          "relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 overflow-hidden opacity-0",
+          isVisible && 'animate-blur-in stagger-2'
+        )}>
           {/* Subtle gradient masks for smooth edge fade */}
           <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
@@ -142,7 +146,10 @@ const Brands = memo(() => {
         </div>
 
         {/* Additional info with better styling */}
-        <div className="text-center mt-12 p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
+        <div className={cn(
+          "text-center mt-12 p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20 opacity-0",
+          isVisible && 'animate-fade-up stagger-4'
+        )}>
           <p className="text-xl font-semibold text-primary mb-3">
             Authorized Dealers & Certified Installers
           </p>

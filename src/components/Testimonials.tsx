@@ -2,6 +2,7 @@ import { Star, ExternalLink } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 const Testimonials = () => {
   const { elementRef, isVisible } = useScrollAnimation();
@@ -51,12 +52,13 @@ const Testimonials = () => {
   return (
     <section
       ref={elementRef}
-      className={`py-20 bg-gradient-to-b from-background to-secondary/20 transition-all duration-1000 ${
-        isVisible ? 'animate-fade-in' : 'opacity-0'
-      }`}
+      className="py-20 bg-gradient-to-b from-background to-secondary/20"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className={cn(
+          "text-center mb-12 opacity-0",
+          isVisible && 'animate-fade-down'
+        )}>
           <h2 className="text-4xl font-bold mb-4 text-foreground">
             Client Testimonials
           </h2>
@@ -66,7 +68,10 @@ const Testimonials = () => {
           <Button
             size="lg"
             onClick={handleReviewClick}
-            className="gap-2"
+            className={cn(
+              "gap-2 opacity-0",
+              isVisible && 'animate-scale-up stagger-2'
+            )}
           >
             Leave a Review on Google
             <ExternalLink className="w-4 h-4" />
@@ -77,9 +82,13 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.id}
-              className={`transition-all duration-700 delay-${index * 100} ${
-                isVisible ? 'animate-fade-in animate-scale-in' : 'opacity-0 scale-95'
-              }`}
+              className={cn(
+                "opacity-0",
+                isVisible && 'animate-flip-in',
+                index === 0 && 'stagger-2',
+                index === 1 && 'stagger-3',
+                index === 2 && 'stagger-4'
+              )}
             >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
