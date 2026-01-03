@@ -140,6 +140,18 @@ body {
   .animate-shimmer {
     animation: shimmer 2s infinite;
   }
+
+  /* Animated Location Map pulse animations */
+  @keyframes ae-pulse-ring {
+    0%   { transform: translate(-50%, -50%) scale(0.2); opacity: 0.0; }
+    40%  { opacity: 0.35; }
+    100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0.0; }
+  }
+
+  @keyframes ae-pulse-dot {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50%      { transform: translate(-50%, -50%) scale(1.08); }
+  }
   
   /* Performance optimizations */
   .will-change-transform {
