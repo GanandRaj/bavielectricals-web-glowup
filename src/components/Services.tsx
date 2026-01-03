@@ -76,11 +76,13 @@ const Services = memo(() => {
       >
         {/* Section Header */}
         <div className={cn(
-          "text-center mb-10 sm:mb-12 md:mb-16",
-          "transition-all duration-700",
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          "text-center mb-10 sm:mb-12 md:mb-16 opacity-0",
+          isVisible && 'animate-fade-down'
         )}>
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+          <span className={cn(
+            "inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4 opacity-0",
+            isVisible && 'animate-scale-up stagger-1'
+          )}>
             What We Offer
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
@@ -92,13 +94,12 @@ const Services = memo(() => {
         </div>
 
         {/* Services Layout - Left list, Right image */}
-        <div className={cn(
-          "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12",
-          "transition-all duration-700 delay-200",
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        )}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left - Service Cards List */}
-          <div className="flex flex-col gap-3 sm:gap-4">
+          <div className={cn(
+            "flex flex-col gap-3 sm:gap-4 opacity-0",
+            isVisible && 'animate-fade-right'
+          )}>
             {services.map((service, index) => {
               const Icon = service.icon;
               const isActive = activeIndex === index;
@@ -164,8 +165,10 @@ const Services = memo(() => {
           </div>
 
           {/* Right - Service Image */}
-          <div className="relative h-[300px] sm:h-[400px] lg:h-full lg:min-h-[500px] rounded-3xl overflow-hidden">
-            {/* Background gradient glow */}
+          <div className={cn(
+            "relative h-[300px] sm:h-[400px] lg:h-full lg:min-h-[500px] rounded-3xl overflow-hidden opacity-0",
+            isVisible && 'animate-fade-left stagger-2'
+          )}>
             <div className={cn(
               "absolute -inset-4 rounded-3xl blur-2xl opacity-30 transition-all duration-700",
               "bg-gradient-to-br",
@@ -232,9 +235,8 @@ const Services = memo(() => {
 
         {/* Bottom CTA */}
         <div className={cn(
-          "text-center mt-10 sm:mt-12 md:mt-16",
-          "transition-all duration-700 delay-500",
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          "text-center mt-10 sm:mt-12 md:mt-16 opacity-0",
+          isVisible && 'animate-fade-up stagger-4'
         )}>
           <p className="text-muted-foreground mb-4 text-sm sm:text-base">
             Need a service not listed? We've got you covered!

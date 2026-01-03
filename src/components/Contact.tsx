@@ -1,4 +1,3 @@
-
 import { Phone, Mail, MapPin, Clock, Send, User, Mail as MailIcon, Building, MessageSquare } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
@@ -12,6 +11,8 @@ import { z } from 'zod';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -23,6 +24,7 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const Contact = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
@@ -94,9 +96,16 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black">
+    <section 
+      id="contact" 
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className={cn(
+          "text-center mb-16 opacity-0",
+          isVisible && 'animate-fade-down'
+        )}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Get In Touch
           </h2>
@@ -106,7 +115,10 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className={cn(
+          "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 opacity-0",
+          isVisible && 'animate-fade-up stagger-1'
+        )}>
           <Card className="group bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 cursor-default">
             <CardContent className="p-8 text-center">
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
@@ -165,7 +177,10 @@ const Contact = () => {
         </div>
 
         {/* Contact Form Section */}
-        <div className="mb-16">
+        <div className={cn(
+          "mb-16 opacity-0",
+          isVisible && 'animate-blur-in stagger-3'
+        )}>
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 max-w-4xl mx-auto">
             <CardContent className="p-8 md:p-12">
               <div className="text-center mb-8">

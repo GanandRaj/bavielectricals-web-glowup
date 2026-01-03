@@ -87,14 +87,17 @@ const Projects = memo(() => {
     <section id="projects" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
       <div 
         ref={elementRef as React.RefObject<HTMLDivElement>}
-        className={cn(
-          "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-          isVisible ? 'animate-fade-in' : 'opacity-0'
-        )}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+        <div className={cn(
+          "text-center mb-10 sm:mb-12 md:mb-16 opacity-0",
+          isVisible && 'animate-fade-down'
+        )}>
+          <span className={cn(
+            "inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4 opacity-0",
+            isVisible && 'animate-bounce-in stagger-1'
+          )}>
             Our Portfolio
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Fredoka'] font-bold text-foreground mb-3 sm:mb-4">
@@ -106,7 +109,10 @@ const Projects = memo(() => {
         </div>
 
         {/* Carousel */}
-        <div className="relative">
+        <div className={cn(
+          "relative opacity-0",
+          isVisible && 'animate-slide-up-fade stagger-2'
+        )}>
           <Carousel
             setApi={setApi}
             opts={{
@@ -211,7 +217,10 @@ const Projects = memo(() => {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-border/50">
+        <div className={cn(
+          "grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-border/50 opacity-0",
+          isVisible && 'animate-fade-up stagger-4'
+        )}>
           <div className="text-center">
             <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">{projects.length}+</div>
             <div className="text-xs sm:text-sm text-muted-foreground">Projects Completed</div>
