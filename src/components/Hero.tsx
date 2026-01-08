@@ -70,31 +70,6 @@ const Hero = memo(() => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto animate-fade-in delay-700 px-2 sm:px-0">
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-1 hover:scale-105 active:scale-95">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-900">24/7 Emergency Service</h3>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">Available when you need us most</p>
-            </div>
-            
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-2 hover:scale-105 active:scale-95">
-              <div className="bg-gradient-to-br from-green-500 to-green-600 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-900">Licensed & Insured</h3>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">Professional and reliable service</p>
-            </div>
-            
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 shadow-2xl border border-white/20 transition-all duration-500 animate-card-lift-3 hover:scale-105 active:scale-95 sm:col-span-2 md:col-span-1 sm:max-w-sm sm:mx-auto md:max-w-none">
-              <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-900">Local Expertise</h3>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">Serving the community with pride</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>;
