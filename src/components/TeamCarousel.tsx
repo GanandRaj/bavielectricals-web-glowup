@@ -66,13 +66,13 @@ const TeamCarousel = () => {
   const visibleIndices = getVisibleMembers();
 
   const getCardStyle = (position: number) => {
-    // position: -2, -1, 0, 1, 2 (0 is center)
+    // position: -2, -1, 0, 1, 2 (0 is center) - tighter spacing like reference
     const styles: { [key: number]: string } = {
-      [-2]: 'translate-x-[-180%] scale-[0.5] opacity-30 z-10 blur-[2px]',
-      [-1]: 'translate-x-[-85%] scale-[0.7] opacity-60 z-20',
+      [-2]: 'translate-x-[-130%] md:translate-x-[-140%] scale-[0.55] opacity-40 z-10 grayscale',
+      [-1]: 'translate-x-[-55%] md:translate-x-[-60%] scale-[0.75] opacity-70 z-20 grayscale',
       [0]: 'translate-x-0 scale-100 opacity-100 z-30',
-      [1]: 'translate-x-[85%] scale-[0.7] opacity-60 z-20',
-      [2]: 'translate-x-[180%] scale-[0.5] opacity-30 z-10 blur-[2px]',
+      [1]: 'translate-x-[55%] md:translate-x-[60%] scale-[0.75] opacity-70 z-20 grayscale',
+      [2]: 'translate-x-[130%] md:translate-x-[140%] scale-[0.55] opacity-40 z-10 grayscale',
     };
     return styles[position] || '';
   };
@@ -80,35 +80,35 @@ const TeamCarousel = () => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`py-20 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden transition-all duration-700 ${
+      className={`py-12 md:py-20 bg-gradient-to-b from-stone-100 via-stone-50 to-white overflow-hidden transition-all duration-700 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Background Title */}
-        <div className="relative text-center mb-8">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-slate-700/30 uppercase tracking-widest select-none">
+        <div className="relative text-center mb-4 md:mb-8">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-slate-300/50 uppercase tracking-widest select-none">
             Our Team
           </h2>
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative h-[400px] md:h-[500px] flex items-center justify-center">
+        <div className="relative h-[320px] sm:h-[380px] md:h-[450px] flex items-center justify-center">
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 md:left-8 z-40 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            className="absolute left-0 sm:left-4 md:left-8 z-40 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/30 flex items-center justify-center text-white hover:bg-slate-700 transition-all duration-300 hover:scale-110"
             aria-label="Previous team member"
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-2 md:right-8 z-40 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            className="absolute right-0 sm:right-4 md:right-8 z-40 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600/30 flex items-center justify-center text-white hover:bg-slate-700 transition-all duration-300 hover:scale-110"
             aria-label="Next team member"
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
 
           {/* Cards Container */}
@@ -124,14 +124,16 @@ const TeamCarousel = () => {
                   style={{ transformStyle: 'preserve-3d' }}
                 >
                   <div 
-                    className={`relative overflow-hidden rounded-2xl shadow-2xl ${
+                    className={`relative overflow-hidden rounded-2xl shadow-xl ${
                       position === 0 
-                        ? 'w-56 h-72 md:w-72 md:h-96 ring-4 ring-white/30' 
-                        : 'w-40 h-52 md:w-56 md:h-72'
+                        ? 'w-44 h-56 sm:w-52 sm:h-68 md:w-64 md:h-80 lg:w-72 lg:h-96 ring-4 ring-slate-200/50 shadow-2xl' 
+                        : 'w-32 h-44 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72'
                     }`}
                   >
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                    {/* Gradient overlay for non-center cards */}
+                    {position !== 0 && (
+                      <div className="absolute inset-0 bg-slate-200/20 z-10" />
+                    )}
                     
                     {/* Image */}
                     <img
@@ -139,11 +141,6 @@ const TeamCarousel = () => {
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
-
-                    {/* Decorative border glow for center card */}
-                    {position === 0 && (
-                      <div className="absolute inset-0 rounded-2xl ring-2 ring-teal-400/50 shadow-[0_0_30px_rgba(20,184,166,0.3)]" />
-                    )}
                   </div>
                 </div>
               );
@@ -153,28 +150,24 @@ const TeamCarousel = () => {
 
         {/* Current Member Info */}
         <div className="text-center mt-4 md:mt-8">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent to-teal-400" />
-            <h3 className="text-xl md:text-3xl font-bold text-white">
-              {teamMembers[currentIndex].name}
-            </h3>
-            <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent to-teal-400" />
-          </div>
-          <p className="text-sm md:text-lg text-teal-400 uppercase tracking-widest font-medium">
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-800">
+            {teamMembers[currentIndex].name}
+          </h3>
+          <p className="text-xs sm:text-sm md:text-base text-blue-600 uppercase tracking-widest font-medium mt-1">
             {teamMembers[currentIndex].role}
           </p>
         </div>
 
         {/* Dot Indicators */}
-        <div className="flex justify-center gap-2 md:gap-3 mt-8">
+        <div className="flex justify-center gap-1.5 sm:gap-2 md:gap-3 mt-6 md:mt-8">
           {teamMembers.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? 'w-6 md:w-8 h-2 md:h-3 bg-teal-400'
-                  : 'w-2 md:w-3 h-2 md:h-3 bg-white/30 hover:bg-white/50'
+                  ? 'w-5 sm:w-6 md:w-8 h-1.5 sm:h-2 md:h-2.5 bg-blue-600'
+                  : 'w-1.5 sm:w-2 md:w-2.5 h-1.5 sm:h-2 md:h-2.5 bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to team member ${index + 1}`}
             />
