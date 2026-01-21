@@ -126,10 +126,26 @@ const TeamCarousel = () => {
                   <div 
                     className={`relative overflow-hidden rounded-2xl shadow-xl ${
                       position === 0 
-                        ? 'w-44 h-56 sm:w-52 sm:h-68 md:w-64 md:h-80 lg:w-72 lg:h-96 ring-4 ring-slate-200/50 shadow-2xl' 
+                        ? 'w-44 h-56 sm:w-52 sm:h-68 md:w-64 md:h-80 lg:w-72 lg:h-96 shadow-2xl' 
                         : 'w-32 h-44 sm:w-40 sm:h-52 md:w-48 md:h-64 lg:w-56 lg:h-72'
                     }`}
                   >
+                    {/* Animated beam border for center card */}
+                    {position === 0 && (
+                      <>
+                        <div className="absolute -inset-[2px] rounded-2xl overflow-hidden z-0">
+                          <div 
+                            className="absolute inset-0 animate-spin-slow"
+                            style={{
+                              background: 'conic-gradient(from 0deg, transparent, transparent 60%, #06b6d4 80%, #3b82f6 90%, transparent 100%)',
+                              animationDuration: '3s',
+                            }}
+                          />
+                        </div>
+                        <div className="absolute inset-[2px] rounded-2xl bg-white z-[1]" />
+                      </>
+                    )}
+                    
                     {/* Gradient overlay for non-center cards */}
                     {position !== 0 && (
                       <div className="absolute inset-0 bg-slate-200/20 z-10" />
@@ -139,7 +155,7 @@ const TeamCarousel = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover relative z-[2] rounded-2xl"
                     />
                   </div>
                 </div>
